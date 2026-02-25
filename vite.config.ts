@@ -4,6 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  // Relative base so CSS/JS load correctly on cPanel no matter where index.html lives
+  base: "./",
   server: {
     host: "::",
     port: 8080,

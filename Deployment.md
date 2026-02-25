@@ -89,22 +89,28 @@ The app uses client-side routing. So that URLs like `yoursite.com/some-page` and
 
 ### Base URL
 
-- If the site is at the **root** of your domain (e.g. `https://yourdomain.com/`), you don’t need to change anything.
-- If it’s in a **subdirectory** (e.g. `https://yourdomain.com/myapp/`), set the base in **`vite.config.ts`**:
-
-  ```ts
-  export default defineConfig({
-    base: '/myapp/',
-    // ... rest of config
-  });
-  ```
-
-  Then rebuild and upload again.
+- This project uses **relative asset paths** (`base: "./"`) in **`vite.config.ts`**, so CSS and JS load correctly on cPanel no matter how files are placed.
+- If the site is served from a **subdirectory** (e.g. `https://yourdomain.com/myapp/`), set `base: '/myapp/'` in **`vite.config.ts`** and rebuild.
 
 ### What to upload
 
 - Upload **everything inside `dist/`** (including `index.html`, `assets/`, and `.htaccess`) into **`public_html`** (or the correct document root for your domain).
-- Do **not** upload the repo (e.g. `src/`, `node_modules/`) or the `dist` folder itself; only its contents.
+- Do **not** upload the repo (e.g. `src/`, `node_modules/`) or the **`dist` folder itself**; only its **contents**. If `public_html` ends up with a `dist` folder (e.g. `public_html/dist/index.html`), the site can break; see the troubleshooting section below.
+
+### Styles or scripts not loading on the domain (cPanel file structure)
+
+If the site looks unstyled or broken on your domain but works locally:
+
+1. **Check the folder structure in cPanel File Manager.** Open **File Manager → public_html**. It should look like this:
+   - `public_html/index.html` (the main page)
+   - `public_html/assets/` (folder containing `.css` and `.js` files with hashed names)
+   - `public_html/.htaccess` (if present)
+
+2. **If you see `public_html/dist/`** with `index.html` and `assets/` inside it, the browser is loading `public_html/index.html` but the built app expects assets next to it. Either:
+   - **Move the contents of `dist` up:** In File Manager, open `public_html/dist/`, select **all** (index.html, assets folder, .htaccess), then **Move** them into `public_html` (so they sit next to any existing files, not inside a `dist` folder). Then delete the now-empty `dist` folder.  
+   - Or **rebuild and re-upload** so that you upload only the **contents** of your local `dist/` folder into `public_html`, not the `dist` folder itself.
+
+3. **Relative base:** The project is configured with `base: "./"` so asset paths are relative to `index.html`. That way CSS and JS load correctly as long as `index.html` and the `assets/` folder are in the same directory (e.g. both directly in `public_html`).
 
 ### HTTPS
 
