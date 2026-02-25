@@ -1,4 +1,4 @@
-ts# Optional: Deploy Vite build to NameCheap Stellar via FTP
+# Optional: Deploy Vite build to NameCheap Stellar via FTP
 # Enable by adding repository secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 name: Deploy to Stellar (FTP)
 
@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./public_html
+          server-dir: ./
           dangerous-clean-slate: false
