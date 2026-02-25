@@ -1,4 +1,4 @@
-# Optional: Deploy Vite build to NameCheap Stellar via FTP
+ts# Optional: Deploy Vite build to NameCheap Stellar via FTP
 # Enable by adding repository secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 name: Deploy to Stellar (FTP)
 
