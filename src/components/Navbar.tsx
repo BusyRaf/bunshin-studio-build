@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../../Assets/logo.png";
 
 const navLinks = [
   { label: "The Philosophy", href: "#philosophy" },
@@ -20,8 +21,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-mono text-xl font-bold tracking-widest text-primary">
-          BUNSHIN
+        <a href="#" className="flex items-center gap-2">
+          <img src={logo} alt="Bunshin Studio logo" className="h-8 w-auto" />
+          <span className="font-mono text-xl font-bold tracking-widest text-primary">
+            BUNSHIN
+          </span>
         </a>
 
         {/* Desktop */}
