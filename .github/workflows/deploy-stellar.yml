@@ -31,5 +31,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./
+          # Upload into existing public_html (cPanel/NameCheap). If your FTP user is chrooted to public_html, use server-dir: ./
+          server-dir: public_html/
           dangerous-clean-slate: false
