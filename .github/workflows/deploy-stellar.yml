@@ -1,4 +1,4 @@
-# Optional: Deploy Vite build to NameCheap Stellar via FTP
+ts# Optional: Deploy Vite build to NameCheap Stellar via FTP
 # Enable by adding repository secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 name: Deploy to Stellar (FTP)
 
@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ ftp.bunshin.io }}
+          server: ${{secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
