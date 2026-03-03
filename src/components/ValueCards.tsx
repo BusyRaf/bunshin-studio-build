@@ -1,35 +1,32 @@
-import { Layers, Cpu, ShieldCheck } from "lucide-react";
+import { RefreshCw, AlertTriangle, ShieldAlert } from "lucide-react";
 
 const cards = [
   {
-    icon: Layers,
-    title: "Full Lifecycle Management",
+    icon: RefreshCw,
+    title: "The Prompt Loop",
     description:
-      "We don't just stop at a demo. Our team supports the seamless Ideate-Build-Deploy-Support cycle.",
+      "End 8-hour sessions of fixing code by restoring context so the AI actually understands your app again.",
   },
   {
-    icon: Cpu,
-    title: "AI-Powered Efficiency",
+    icon: AlertTriangle,
+    title: "Deployment Dread",
     description:
-      "We leverage modern, AI-accelerated engineering workflows to reduce development time without compromising quality.",
+      "Stop worrying that your app will break in unexpected ways once it’s in users' hands.",
   },
   {
-    icon: ShieldCheck,
-    title: "Production-Grade Uptime",
+    icon: ShieldAlert,
+    title: "Security Gaps",
     description:
-      "AI breaks things. We fix them. Expert human oversight to ensure 99.9% reliability.",
+      "Close flaws beyond your comprehension to protect yourself from legal liability and data leaks.",
   },
 ];
 
 const ValueCards = () => {
   return (
-    <section id="services" className="py-24 md:py-32">
+    <section id="problem" className="py-24 md:py-32">
       <div className="container mx-auto px-6">
-        <p className="font-mono text-sm text-primary tracking-[0.3em] uppercase text-center mb-4">
-          What We Deliver
-        </p>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Built for the Real World
+          Is your AI-generated code holding you back?
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
