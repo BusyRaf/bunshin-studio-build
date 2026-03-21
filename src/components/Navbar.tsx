@@ -45,7 +45,7 @@ const Navbar = () => {
             <li key={link.href}>
               <button
                 onClick={() => handleClick(link.href)}
-                className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="font-mono text-sm text-muted-foreground hover:text-accent-purple transition-colors duration-300"
               >
                 {link.label}
               </button>
@@ -54,9 +54,9 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => handleClick("/contact")}
-              className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md hover:cyan-glow transition-all duration-300"
+              className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md hover:bg-accent-purple hover:cyan-glow transition-all duration-300"
             >
-              Let's Connect
+              Check Availability
             </button>
           </li>
         </ul>
@@ -75,7 +75,7 @@ const Navbar = () => {
               <li key={link.href}>
                 <button
                   onClick={() => handleClick(link.href)}
-                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors w-full text-left"
+                  className="font-mono text-sm text-muted-foreground hover:text-accent-purple transition-colors w-full text-left"
                 >
                   {link.label}
                 </button>
@@ -84,9 +84,9 @@ const Navbar = () => {
             <li>
               <button
               onClick={() => handleClick("/contact")}
-                className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md w-full"
+                className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md w-full hover:bg-accent-purple"
               >
-                Let's Connect
+                Check Availability
               </button>
             </li>
           </ul>

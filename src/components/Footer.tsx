@@ -17,14 +17,14 @@ const Footer = () => {
           <div className="flex items-center gap-6">
             <a
               href="#"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-accent-purple transition-colors duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href="#"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-accent-purple transition-colors duration-300"
               aria-label="GitHub"
             >
               <Github size={20} />

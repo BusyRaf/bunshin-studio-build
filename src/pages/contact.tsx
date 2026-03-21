@@ -1,29 +1,21 @@
-import { useState } from "react";
-import { Instagram } from "lucide-react";
+import { useState, type FormEvent } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-
-const XIcon = ({ className, size = 20 }: { className?: string; size?: number }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-    aria-hidden
-  >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 const Contact = () => {
+  const [visitedByRep, setVisitedByRep] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleToggle = (checked: boolean) => {
+    setVisitedByRep(checked);
+    if (status === "success") setStatus("idle");
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("submitting");
 
@@ -50,92 +42,134 @@ const Contact = () => {
     }
   };
 
+  const inputsDisabled = status === "submitting" || status === "success";
+  const switchDisabled = status === "submitting";
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 pb-24">
-        <section className="container mx-auto px-6 max-w-2xl">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Tell us about your prototype.
+      <main className="pt-28 pb-24 md:pt-32">
+        <section className="container mx-auto px-6 flex flex-col items-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center w-full max-w-[480px]">
+            Let&apos;s Talk.
           </h1>
-          <p className="text-muted-foreground text-center mb-4 font-sans">
-            Share where your build is today and where you&apos;re trying to go. We&apos;ll reach out
-            to schedule a call.
-          </p>
-          <div className="flex items-center justify-center gap-6 mb-10">
-            <a
-              href="https://x.com/Bunshin_Dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-11 h-11 rounded-lg border border-border bg-background/40 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors duration-300"
-              aria-label="Follow us on X"
-            >
-              <XIcon size={20} />
-            </a>
-            <a
-              href="https://www.instagram.com/bunshindevelopmentstudios/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-11 h-11 rounded-lg border border-border bg-background/40 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors duration-300"
-              aria-label="Follow us on Instagram"
-            >
-              <Instagram size={20} />
-            </a>
-          </div>
 
           <form
             onSubmit={handleSubmit}
-            className="glass rounded-xl p-6 md:p-8 space-y-6"
-            noValidate
+            className="glass rounded-xl p-6 md:p-8 space-y-6 w-full max-w-[480px] border border-border shadow-[0_0_40px_rgba(0,0,0,0.45)]"
           >
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-mono mb-2 text-secondary-foreground">
-                  Name
-                </label>
-                <Input name="name" required placeholder="Your name" />
-              </div>
-              <div>
-                <label className="block text-sm font-mono mb-2 text-secondary-foreground">
-                  Email
-                </label>
-                <Input name="email" type="email" required placeholder="you@example.com" />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2 text-secondary-foreground">
-                Company / Project
-              </label>
-              <Input name="company" placeholder="Product name or company" />
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2 text-secondary-foreground">
-                What have you built so far?
-              </label>
-              <Textarea
-                name="message"
-                required
-                rows={5}
-                placeholder="Share links, tech stack, and where you feel blocked."
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <Label
+                htmlFor="bunshin-rep-visited"
+                className="text-sm font-mono text-secondary-foreground cursor-pointer leading-snug sm:max-w-[min(100%,16rem)]"
+              >
+                Already visited by a Bunshin rep?
+              </Label>
+              <Switch
+                id="bunshin-rep-visited"
+                checked={visitedByRep}
+                onCheckedChange={handleToggle}
+                disabled={switchDisabled}
+                className="shrink-0 self-start sm:self-center transition-transform duration-200"
               />
             </div>
 
-            <div className="flex flex-col items-center gap-3">
-              <Button
-                type="submit"
-                size="lg"
-                className="font-mono cyan-glow"
-                disabled={status === "submitting"}
+            <div className="relative min-h-[4.75rem]">
+              <p
+                key={visitedByRep ? "returning" : "new"}
+                className="text-muted-foreground text-sm font-sans leading-relaxed animate-in fade-in-0 slide-in-from-bottom-1 duration-300 fill-mode-both"
               >
-                {status === "submitting" ? "Sending..." : "Send Message"}
-              </Button>
-              {status === "success" && (
-                <p className="text-xs text-emerald-400 font-sans text-center">
-                  Message sent. We&apos;ll review it and follow up from{" "}
-                  <span className="font-mono text-primary">hello@bunshin.io</span>.
+                {visitedByRep
+                  ? "Good to have you back. Drop your info below and reference your rep — we'll pick up right where you left off."
+                  : "Leave your info below and we'll be in touch within one business day."}
+              </p>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-name">
+                  Name
+                </label>
+                <Input
+                  id="contact-name"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  disabled={inputsDisabled}
+                  autoComplete="name"
+                />
+              </div>
+
+              <div>
+                <label
+                  className="block text-sm font-mono mb-2 text-secondary-foreground"
+                  htmlFor="contact-business"
+                >
+                  Business Name
+                </label>
+                <Input
+                  id="contact-business"
+                  name="business"
+                  required
+                  placeholder="Your business"
+                  disabled={inputsDisabled}
+                  autoComplete="organization"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-phone">
+                  Phone Number
+                </label>
+                <Input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="(555) 555-5555"
+                  disabled={inputsDisabled}
+                  autoComplete="tel"
+                />
+              </div>
+
+              <div>
+                <label
+                  key={visitedByRep ? "returning-label" : "new-label"}
+                  htmlFor="contact-details"
+                  className="block text-sm font-mono mb-2 text-secondary-foreground animate-in fade-in-0 slide-in-from-bottom-1 duration-300 fill-mode-both"
+                >
+                  {visitedByRep
+                    ? "Anything you'd like us to know?"
+                    : "What kind of business do you run?"}
+                </label>
+                <Input
+                  id="contact-details"
+                  name="message"
+                  required
+                  placeholder={visitedByRep ? "Optional context for your rep…" : "e.g. retail, services, restaurant…"}
+                  disabled={inputsDisabled}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-3 pt-1 min-h-[3rem] justify-center">
+              {status === "success" ? (
+                <p
+                  key="success-msg"
+                  className="font-mono text-sm text-primary text-center animate-in fade-in-0 duration-300"
+                >
+                  Got it. We&apos;ll be in touch soon.
                 </p>
+              ) : (
+                <Button
+                  key={visitedByRep ? "btn-returning" : "btn-new"}
+                  type="submit"
+                  size="lg"
+                  className="font-mono w-full sm:w-auto cyan-glow animate-in fade-in-0 slide-in-from-bottom-1 duration-300"
+                  disabled={status === "submitting"}
+                >
+                  {status === "submitting" ? "Sending…" : visitedByRep ? "Send It Over" : "Reach Out"}
+                </Button>
               )}
               {status === "error" && (
                 <p className="text-xs text-red-400 font-sans text-center">
@@ -153,4 +187,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

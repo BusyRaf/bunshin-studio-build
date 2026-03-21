@@ -1,46 +1,41 @@
-import { ClipboardList, Network, ShieldCheck, Globe2 } from "lucide-react";
+import { ClipboardList, Network, ShieldCheck } from "lucide-react";
 
 const services = [
   {
     icon: ClipboardList,
-    title: "Technical Audit",
+    title: "Your site, before you commit:",
     description:
-      "A rigorous review of AI-generated code to identify security holes, redundancies, and logic problems.",
+      "Walk in, see your business already online. No guessing. No vague promises.",
   },
   {
     icon: Network,
-    title: "Architecture Strategy",
-    description: "We create a professional roadmap to get your app where you want it to go.",
+    title: "Done for you, start to finish:",
+    description:
+      "Copywriting, SEO, security setup — handled. You stay focused on your customers.",
   },
   {
     icon: ShieldCheck,
-    title: "Infrastructure & Security",
+    title: "Local. Veteran-owned. Accountable:",
     description:
-      "Implementation of industry-standard protocols, including Auth, API rate limiting, and data encryption.",
-  },
-  {
-    icon: Globe2,
-    title: "Full Stack Ownership",
-    description:
-      "We handle domain and email setup (NameCheap), App Store developer accounts, and provide full documentation.",
+      "You'll have a real local team who answers when you call — not a ticket system.",
   },
 ];
 
 const BunshinBuild = () => {
   return (
-    <section id="bunshin-build" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="bunshin-build" className="py-24 md:py-32 relative overflow-hidden border-t border-accent-purple/20">
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-primary/3 blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Bunshin Build
+          The Bunshin Solution
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 font-sans">
-          We meet you where you are today and design the technical path to where your investors,
-          customers, and future team need you to be.
+          We don't pitch you a mockup and ask you to imagine it. You see a working version of your
+          new site before you pay a single dollar.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
           {services.map((service) => (
             <div
               key={service.title}

@@ -3,39 +3,36 @@ import { Briefcase, Rocket, Zap, Target } from "lucide-react";
 const gains = [
   {
     icon: Briefcase,
-    title: "Investor-Ready Codebase",
-    description:
-      "We transform prototypes into professional assets that pass technical due diligence for buyers or partners.",
+    title: "Request:",
+    description: "Text or email us the change you need.",
   },
   {
     icon: Rocket,
-    title: "Instant Scaling",
-    description:
-      "Infrastructure designed to handle the jump from 100 to 1,000,000 users without crashing or slowing down.",
+    title: "Develop:",
+    description: "We build it — usually the same day.",
   },
   {
     icon: Zap,
-    title: "Hyper-Speed Iteration",
-    description: "Get your finished product in two one-week sprints.",
+    title: "Review:",
+    description: "You get a link on your phone. Reply Y to approve.",
   },
   {
     icon: Target,
-    title: "Founder Freedom",
-    description:
-      "We handle the technology so you can focus on SEO and customer acquisition.",
+    title: "Deploy:",
+    description: "It goes live. Done.",
   },
 ];
 
 const ValuePropositions = () => {
   return (
-    <section id="value" className="py-24 md:py-32">
+    <section id="value" className="py-24 md:py-32 border-t border-accent-purple/20">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Bunshin Benefits
+          Maintenance Made Simple: The R2D2 System
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 font-sans">
-          At Bunshin we spearhead a deliberate transformation of your stack into an ownable asset
-          that compounds over time.
+          Stop waiting weeks to hear back from a developer. Our Request → Develop → Review → Deploy
+          system is built for speed:
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

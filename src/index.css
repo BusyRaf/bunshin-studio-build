@@ -1,9 +1,9 @@
+/* Brand fonts — @import must precede @tailwind for PostCSS */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Brand fonts */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @layer base {
   :root {
@@ -17,8 +17,10 @@
     --popover: 222 47% 9%;
     --popover-foreground: 180 15% 92%;
 
-    --primary: 180 100% 50%;
+    --primary: 187 100% 42%;
     --primary-foreground: 222 47% 6%;
+
+    --accent-purple: 252 95% 66%;
 
     --secondary: 262 70% 32%;
     --secondary-foreground: 210 40% 96%;
@@ -26,26 +28,26 @@
     --muted: 222 20% 20%;
     --muted-foreground: 220 15% 65%;
 
-    --accent: 190 95% 65%;
-    --accent-foreground: 222 47% 5%;
+    --accent: 252 95% 66%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 222 35% 22%;
     --input: 222 35% 22%;
-    --ring: 190 95% 65%;
+    --ring: 187 100% 42%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 180 15% 92%;
-    --sidebar-primary: 190 95% 65%;
+    --sidebar-primary: 187 100% 42%;
     --sidebar-primary-foreground: 222 47% 6%;
     --sidebar-accent: 222 35% 18%;
     --sidebar-accent-foreground: 180 15% 92%;
     --sidebar-border: 222 35% 24%;
-    --sidebar-ring: 190 95% 65%;
+    --sidebar-ring: 187 100% 42%;
   }
 
   .dark {
@@ -55,27 +57,28 @@
     --card-foreground: 180 15% 92%;
     --popover: 222 47% 9%;
     --popover-foreground: 180 15% 92%;
-    --primary: 180 100% 50%;
+    --primary: 187 100% 42%;
     --primary-foreground: 222 47% 6%;
+    --accent-purple: 252 95% 66%;
     --secondary: 262 70% 32%;
     --secondary-foreground: 210 40% 96%;
     --muted: 222 20% 20%;
     --muted-foreground: 220 15% 65%;
-    --accent: 190 95% 65%;
-    --accent-foreground: 222 47% 5%;
+    --accent: 252 95% 66%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 222 35% 22%;
     --input: 222 35% 22%;
-    --ring: 190 95% 65%;
+    --ring: 187 100% 42%;
     --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 180 15% 92%;
-    --sidebar-primary: 190 95% 65%;
+    --sidebar-primary: 187 100% 42%;
     --sidebar-primary-foreground: 222 47% 6%;
     --sidebar-accent: 222 35% 18%;
     --sidebar-accent-foreground: 180 15% 92%;
     --sidebar-border: 222 35% 24%;
-    --sidebar-ring: 190 95% 65%;
+    --sidebar-ring: 187 100% 42%;
   }
 }
 
@@ -99,7 +102,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "Syne", system-ui, sans-serif;
     letter-spacing: 0.03em;
   }
 }
@@ -114,19 +117,23 @@
   }
 
   .cyan-glow {
-    box-shadow: 0 0 24px hsl(190 95% 65% / 0.5), 0 0 80px hsl(190 95% 65% / 0.25);
+    box-shadow: 0 0 24px hsl(187 100% 42% / 0.5), 0 0 80px hsl(187 100% 42% / 0.25);
   }
 
   .cyan-glow-sm {
-    box-shadow: 0 0 14px hsl(190 95% 65% / 0.45), 0 0 40px hsl(190 95% 65% / 0.18);
+    box-shadow: 0 0 14px hsl(187 100% 42% / 0.45), 0 0 40px hsl(187 100% 42% / 0.18);
   }
 
   .text-gradient-cyan {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(180 100% 50%), hsl(262 80% 68%));
+    background-image: linear-gradient(135deg, #00bcd4, #0097a7);
   }
 
   .border-glow {
-    border-color: hsl(190 95% 65% / 0.4);
+    border-color: hsl(187 100% 42% / 0.4);
+  }
+
+  .hover-accent-purple:hover {
+    color: hsl(252 95% 66%);
   }
 }
