@@ -11,9 +11,14 @@ const Contact = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     setStatus("submitting");
 
-    const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
@@ -103,6 +108,22 @@ const Contact = () => {
             </div>
 
             <div>
+              <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-email">
+                Email <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="contact-email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@company.com"
+                disabled={fieldDisabled}
+                autoComplete="email"
+                aria-required="true"
+              />
+            </div>
+
+            <div>
               <label
                 className="block text-sm font-mono mb-2 text-secondary-foreground"
                 htmlFor="contact-business"
@@ -122,29 +143,16 @@ const Contact = () => {
             <div>
               <label
                 className="block text-sm font-mono mb-2 text-secondary-foreground"
-                htmlFor="contact-reach"
+                htmlFor="contact-general-description"
               >
-                Best way to reach you
-              </label>
-              <Input
-                id="contact-reach"
-                name="best_way"
-                required
-                placeholder="e.g. email, phone, text — and the best time"
-                disabled={fieldDisabled}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-project">
-                What you&apos;re working on
+                General description
               </label>
               <Textarea
-                id="contact-project"
+                id="contact-general-description"
                 name="message"
                 required
                 rows={5}
-                placeholder="Goals, timeline, constraints — whatever helps us prepare."
+                placeholder="High-level overview of what you need — goals, context, or constraints."
                 disabled={fieldDisabled}
                 className="resize-y min-h-[120px]"
               />

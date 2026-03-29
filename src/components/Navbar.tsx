@@ -33,10 +33,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <button onClick={() => handleClick("/")} className="flex items-center gap-2">
-          <img src={ghost} alt="Bunshin Development Studios ghost" className="h-8 w-auto" />
-          <span className="font-mono text-xl font-bold tracking-widest text-primary">
-            BUNSHIN
+        <button
+          onClick={() => handleClick("/")}
+          className="flex items-center gap-2 text-left min-w-0 max-w-[calc(100vw-5rem)] sm:max-w-none"
+        >
+          <img src={ghost} alt="" className="h-8 w-auto shrink-0" />
+          <span className="font-mono text-xs sm:text-sm md:text-base font-bold text-primary tracking-wide leading-snug">
+            Bunshin Development Studios
           </span>
         </button>
 
