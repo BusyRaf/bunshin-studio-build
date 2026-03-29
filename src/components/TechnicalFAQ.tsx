@@ -3,33 +3,33 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const faqItems = [
   {
     id: "item-1",
-    question: "How does this work if I've never met you?",
+    question: "What industries have you worked in?",
     answer:
-      "Leave your info on our contact page and we'll reach out within one business day. If your business is in our area and there's a spot available in our current cohort, we'll schedule a time to come show you what we've put together — no commitment required.",
+      "Healthcare, nuclear energy, maritime security, cryptocurrency, and military applications. We're comfortable operating in high-stakes, highly regulated environments — and we bring that same discipline to every engagement regardless of industry.",
   },
   {
     id: "item-2",
-    question: "I already have a website. Why would I need this?",
+    question: "How do you work alongside existing internal teams?",
     answer:
-      "Most small business websites were built to exist, not to perform. If your site isn't showing up on Google, doesn't look right on a phone, or you can't remember the last time it was updated — it's costing you customers. We'll show you exactly what a modern site looks like for your business, side by side with what you have today.",
+      "We start by meeting with your team to understand internal boundaries, define roles, gather documentation, and elicit requirements. We integrate without disrupting — your team stays focused on what they do best while we handle what you need us to.",
   },
   {
     id: "item-3",
-    question: "What happens if I don't like what you built?",
+    question: "How do you manage scope, timeline, and budget on complex projects?",
     answer:
-      "You tell us on the spot. We annotate every change you want before we leave, and the final site reflects your feedback. You don't pay the remaining balance until you've reviewed and approved the finished product.",
+      "With rigor. We use tools like Jira and Confluence alongside PMI methodologies and Earned Value Management to ensure every task has an owner, a timeline, a budget, and clearly defined requirements and outcomes. Nothing falls through the cracks.",
   },
   {
     id: "item-4",
-    question: "Do I own my website when it's done?",
+    question: "What makes Bunshin different from a larger agency or consultancy?",
     answer:
-      "100%. The code, the domain, the content — all yours. If you ever cancel your monthly support plan, we hand everything over immediately. No hostage websites.",
+      "We operate with a sense of urgency and ownership that larger firms can't replicate. At Bunshin, time is not the differentiator — leadership, initiative, and hard work are. That's what separates excellent outcomes from mediocre ones, and it's the standard we hold ourselves to on every project.",
   },
   {
     id: "item-5",
-    question: "What does the $50/month actually get me?",
+    question: "How do you handle compliance and data security requirements?",
     answer:
-      "It gets you the R2D2 system — Request, Develop, Review, Deploy. Text or email us a change, we build it same day, you approve it from your phone, it goes live. No developer hunting, no invoices for every small update, no waiting. Minor changes, handled fast, for a flat monthly rate.",
+      "Built in from the start, not added afterward. We have hands-on experience with HIPAA, GDPR, and security requirements across some of the most sensitive environments in the world. Compliance isn't a checklist for us — it's a baseline.",
   },
 ];
 
@@ -42,9 +42,7 @@ const TechnicalFAQ = () => {
           style={{ background: "linear-gradient(135deg, #1e293b 0%, #3b82f6 100%)" }}
         >
           <div className="rounded-xl bg-background/70 backdrop-blur-xl px-4 py-4 md:px-6 md:py-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-left">
-              Frequently Asked Questions
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-left">FAQ</h2>
             <Accordion type="single" collapsible className="w-full">
               {faqItems.map((item) => (
                 <AccordionItem
@@ -69,4 +67,3 @@ const TechnicalFAQ = () => {
 };
 
 export default TechnicalFAQ;
-

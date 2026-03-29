@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { Shield, Clock, Check } from "lucide-react";
 import ghost from "../../Assets/ghost.svg";
+
+const trustItems = [
+  "Veteran-owned",
+  "PMP & CSM Certified",
+  "HIPAA & GDPR Compliant",
+  "Azure & AWS",
+] as const;
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -21,59 +27,47 @@ const Hero = () => {
         <div className="animate-fade-in-up">
           <div className="flex items-center justify-center gap-3">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
-              <img
-                src={ghost}
-                alt="Bunshin ghost"
-                className="h-5 w-5"
-              />
+              <img src={ghost} alt="Bunshin ghost" className="h-5 w-5" />
             </span>
             <p className="font-mono text-sm tracking-[0.3em] uppercase text-gradient-cyan">
               Bunshin Development Studios
             </p>
           </div>
-          <div
-            className="mx-auto mt-[calc((0.9rem-2px)/2)] mb-[calc((0.9rem-2px)/2)] h-[2px] w-8 rounded-full bg-[#00bcd4]"
-            aria-hidden
-          />
+          <div className="mx-auto mt-[calc((0.9rem-2px)/2)] mb-[calc((0.9rem-2px)/2)] h-[2px] w-8 rounded-full bg-primary" aria-hidden />
         </div>
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Professional Digital Presence. <br className="hidden md:block" />
-          <span className="text-gradient-cyan">Delivered.</span>
+          Enterprise Software Engineering{" "}
+          <span className="text-gradient-cyan">For Your Business</span>
         </h1>
         <p
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up font-sans"
+          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up font-sans"
           style={{ animationDelay: "0.2s" }}
         >
-          A high-performance website for your business. Live in 72 hours.
+          From local businesses establishing a digital presence to mid-market companies modernizing legacy
+          infrastructure — we engineer for the long haul.
         </p>
         <div
-          className="flex flex-col items-center animate-fade-in-up"
+          className="flex flex-col items-center animate-fade-in-up gap-8"
           style={{ animationDelay: "0.3s" }}
         >
           <button
             onClick={() => navigate("/contact")}
             className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold w-full sm:w-auto"
           >
-            Check Availability
+            Get in Touch
           </button>
-          <div className="mt-8 w-full max-w-md border-t border-border pt-6">
-            <div className="flex justify-around items-center gap-4 text-[12px] font-sans" style={{ color: "#8899bb" }}>
-              <div className="flex items-center gap-2">
-                <Shield size={14} strokeWidth={2} />
-                <span>SSL Secured</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock size={14} strokeWidth={2} />
-                <span>Live in 72 Hours</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check size={14} strokeWidth={2} />
-                <span>100% Yours</span>
-              </div>
-            </div>
+          <div className="w-full max-w-3xl border-t border-border pt-8">
+            <p className="font-mono text-xs md:text-sm text-muted-foreground tracking-wide leading-relaxed">
+              {trustItems.map((item, i) => (
+                <span key={item}>
+                  {i > 0 && <span className="mx-2 text-primary/60">·</span>}
+                  <span className="text-foreground/90">{item}</span>
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </div>

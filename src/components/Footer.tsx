@@ -1,42 +1,22 @@
-import { Linkedin, Github, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer id="contact" className="border-t border-border py-16">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <p className="font-mono text-xl font-bold tracking-widest text-primary mb-2">
-              BUNSHIN
-            </p>
-            <p className="text-sm text-muted-foreground font-sans">
-              © 2026 Bunshin Development Studios. All rights reserved.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-6">
+        <div className="text-center md:text-left">
+          <p className="font-mono text-xl font-bold tracking-widest text-primary mb-2">BUNSHIN</p>
+          <p className="text-sm text-muted-foreground font-sans">
+            © 2026 Bunshin Development Studios. All rights reserved.{" "}
+            <span className="text-muted-foreground/60">·</span>{" "}
             <a
               href="#"
-              className="text-muted-foreground hover:text-accent-purple transition-colors duration-300"
-              aria-label="LinkedIn"
+              className="text-muted-foreground hover:text-accent-purple transition-colors duration-300 font-mono inline-flex items-center gap-1"
             >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-accent-purple transition-colors duration-300"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2 font-mono text-sm"
-            >
-              <Shield size={16} />
+              <Shield size={14} className="inline shrink-0 opacity-70" aria-hidden />
               Privacy Policy
             </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>

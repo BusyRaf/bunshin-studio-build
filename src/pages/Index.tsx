@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProblemSection from "@/components/ValueCards";
 import BunshinBuild from "@/components/BunshinBuild";
+import ValueCards from "@/components/ValueCards";
 import ValuePropositions from "@/components/ValuePropositions";
-import TechnicalFAQ from "@/components/TechnicalFAQ";
 import LeadMagnet from "@/components/LeadMagnet";
+import TechnicalFAQ from "@/components/TechnicalFAQ";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -22,8 +22,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <ProblemSection />
       <BunshinBuild />
+      <ValueCards />
       <ValuePropositions />
       <LeadMagnet />
       <TechnicalFAQ />

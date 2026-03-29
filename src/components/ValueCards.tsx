@@ -1,22 +1,30 @@
-import { RefreshCw, AlertTriangle, ShieldAlert } from "lucide-react";
+import { TrendingDown, Clock, AlertTriangle, Cpu, Phone } from "lucide-react";
 
 const cards = [
   {
-    icon: RefreshCw,
-    title: "Invisible:",
-    description:
-      "Not showing up on Google, and completely absent from AI search tools like ChatGPT and Gemini.",
+    icon: TrendingDown,
+    title: "Administrative overhead",
+    description: "Your administrative overhead is a drag on your P&L.",
+  },
+  {
+    icon: Clock,
+    title: "Delayed upgrades",
+    description: "Your systems are outdated and upgrades are perpetually delayed.",
   },
   {
     icon: AlertTriangle,
-    title: "Broken on Mobile:",
-    description:
-      "If it doesn't look right on a phone, you're losing customers before they ever call.",
+    title: "Technical debt",
+    description: "Platform technical debt is growing apparent.",
   },
   {
-    icon: ShieldAlert,
-    title: "Impossible to Update:",
-    description: "You shouldn't need to hire someone just to change your hours.",
+    icon: Cpu,
+    title: "Underperforming stack",
+    description: "Your current software stack is not performing to your needs.",
+  },
+  {
+    icon: Phone,
+    title: "You need a partner",
+    description: "You need a partner you can call.",
   },
 ];
 
@@ -24,15 +32,14 @@ const ValueCards = () => {
   return (
     <section id="problem" className="py-24 md:py-32 border-t border-accent-purple/20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          The Small Business Tech Trap
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 max-w-3xl mx-auto">
+          Your Software Is Either Your Edge or a Liability.
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 font-sans">
-          You know you need a better online presence — but the process is usually a nightmare. Most
-          small business sites are:
+          If any of this sounds familiar, we should talk:
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {cards.map((card) => (
             <div
               key={card.title}

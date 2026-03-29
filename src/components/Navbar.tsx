@@ -4,8 +4,9 @@ import { Menu, X } from "lucide-react";
 import ghost from "../../Assets/ghost.svg";
 
 const navLinks = [
-  { label: "Bunshin Build", href: "#bunshin-build" },
-  { label: "Value", href: "#value" },
+  { label: "Core Capabilities", href: "#what-we-do" },
+  { label: "How We Work", href: "#how-we-work" },
+  { label: "Our Standards", href: "#our-standard" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "/contact" },
 ];
@@ -33,14 +34,13 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <button onClick={() => handleClick("/")} className="flex items-center gap-2">
-          <img src={ghost} alt="Bunshin Studio ghost" className="h-8 w-auto" />
+          <img src={ghost} alt="Bunshin Development Studios ghost" className="h-8 w-auto" />
           <span className="font-mono text-xl font-bold tracking-widest text-primary">
             BUNSHIN
           </span>
         </button>
 
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
@@ -56,20 +56,18 @@ const Navbar = () => {
               onClick={() => handleClick("/contact")}
               className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md hover:bg-accent-purple hover:cyan-glow transition-all duration-300"
             >
-              Check Availability
+              Get in Touch
             </button>
           </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden glass border-t border-border px-6 pb-6 pt-2">
+        <div className="lg:hidden glass border-t border-border px-6 pb-6 pt-2">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -83,10 +81,10 @@ const Navbar = () => {
             ))}
             <li>
               <button
-              onClick={() => handleClick("/contact")}
+                onClick={() => handleClick("/contact")}
                 className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md w-full hover:bg-accent-purple"
               >
-                Check Availability
+                Get in Touch
               </button>
             </li>
           </ul>

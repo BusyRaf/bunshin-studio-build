@@ -1,51 +1,51 @@
-import { Briefcase, Rocket, Zap, Target } from "lucide-react";
+import { Compass, PenLine, Hammer, Rocket } from "lucide-react";
 
-const gains = [
+const steps = [
   {
-    icon: Briefcase,
-    title: "Request:",
-    description: "Text or email us the change you need.",
+    icon: Compass,
+    title: "1. Discovery",
+    description: "We learn about your problem and brainstorm solutions together.",
+  },
+  {
+    icon: PenLine,
+    title: "2. Feasibility & Design",
+    description:
+      "We assess what's possible, identify the right approach, and present your options clearly.",
+  },
+  {
+    icon: Hammer,
+    title: "3. Build",
+    description:
+      "We develop your solution using Agile methodologies with your input at every stage — no black boxes, no surprises at the finish line.",
   },
   {
     icon: Rocket,
-    title: "Develop:",
-    description: "We build it — usually the same day.",
-  },
-  {
-    icon: Zap,
-    title: "Review:",
-    description: "You get a link on your phone. Reply Y to approve.",
-  },
-  {
-    icon: Target,
-    title: "Deploy:",
-    description: "It goes live. Done.",
+    title: "4. Launch & Beyond",
+    description:
+      "Deployment is the beginning of the relationship, not the end. We stay available as a real team you can reach.",
   },
 ];
 
 const ValuePropositions = () => {
   return (
-    <section id="value" className="py-24 md:py-32 border-t border-accent-purple/20">
+    <section id="how-we-work" className="py-24 md:py-32 border-t border-accent-purple/20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Maintenance Made Simple: The R2D2 System
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">How We Work</h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 font-sans">
-          Stop waiting weeks to hear back from a developer. Our Request → Develop → Review → Deploy
-          system is built for speed:
+          Straightforward Process. No Surprises.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {gains.map((gain) => (
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-6xl mx-auto items-start">
+          {steps.map((step) => (
             <div
-              key={gain.title}
+              key={step.title}
               className="glass rounded-lg p-8 group hover:border-glow transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-6 group-hover:cyan-glow-sm transition-all duration-500">
-                <gain.icon className="text-primary" size={24} />
+                <step.icon className="text-primary" size={24} />
               </div>
-              <h3 className="font-mono text-lg font-semibold mb-3">{gain.title}</h3>
-              <p className="text-muted-foreground leading-relaxed font-sans">{gain.description}</p>
+              <h3 className="font-mono text-lg font-semibold mb-3">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed font-sans">{step.description}</p>
             </div>
           ))}
         </div>
@@ -55,4 +55,3 @@ const ValuePropositions = () => {
 };
 
 export default ValuePropositions;
-
