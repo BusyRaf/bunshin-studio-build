@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-label="Project screenshot placeholder">
+  <rect width="960" height="600" fill="hsl(222 47% 5%)"/>
+  <rect x="32" y="32" width="896" height="536" rx="16" fill="hsl(222 47% 10%)" stroke="hsl(187 100% 42% / 0.25)" stroke-width="2"/>
+  <rect x="56" y="56" width="200" height="480" rx="12" fill="hsl(222 35% 14%)"/>
+  <rect x="272" y="56" width="632" height="72" rx="10" fill="hsl(222 35% 18%)"/>
+  <rect x="272" y="144" width="632" height="320" rx="12" fill="hsl(222 35% 12%)"/>
+  <text x="480" y="520" text-anchor="middle" fill="hsl(220 15% 55%)" font-family="IBM Plex Mono, monospace" font-size="22" letter-spacing="0.08em">APP DASHBOARD - WIREFRAME</text>
+</svg>

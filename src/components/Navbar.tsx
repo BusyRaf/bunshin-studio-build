@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import ghost from "../../Assets/ghost.svg";
 
 const navLinks = [
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Core Capabilities", href: "#what-we-do" },
   { label: "How We Work", href: "#how-we-work" },
   { label: "Our Standards", href: "#our-standard" },

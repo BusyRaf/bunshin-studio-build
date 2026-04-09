@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-label="Project screenshot placeholder">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(222 47% 8%)"/>
+      <stop offset="100%" style="stop-color:hsl(222 47% 12%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="hsl(222 47% 5%)"/>
+  <rect x="32" y="32" width="896" height="536" rx="16" fill="url(#g1)" stroke="hsl(187 100% 42% / 0.35)" stroke-width="2"/>
+  <rect x="56" y="56" width="848" height="40" rx="8" fill="hsl(222 35% 18%)"/>
+  <circle cx="78" cy="76" r="6" fill="hsl(187 100% 42% / 0.5)"/>
+  <text x="480" y="320" text-anchor="middle" fill="hsl(220 15% 55%)" font-family="IBM Plex Mono, monospace" font-size="22" letter-spacing="0.08em">ENTERPRISE SITE  HERO</text>
+</svg>
