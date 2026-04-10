@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     template: "%s | Bunshin Development Studios",
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/ghost.svg",
+  },
   openGraph: {
     title: "Bunshin Development Studios",
     description: siteConfig.description,
