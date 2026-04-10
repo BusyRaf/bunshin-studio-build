@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  distDir: "out",
   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -9,5 +9,4 @@ const nextConfig = {
     unoptimized: true,
   },
 };
-
 export default nextConfig;
