@@ -1,37 +1,32 @@
 # Optional: Deploy Vite build to NameCheap Stellar via FTP
 # Enable by adding repository secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 name: Deploy to Stellar (FTP)
-
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
-
       - name: Install and build
         run: |
           npm ci
           npm run build
-
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          # Your FTP account's root already appears to be public_html,
-          # so deploy into the current directory to avoid nested public_html/public_html.
-          server-dir: ./
-          dangerous-clean-slate: false
+      - name: List build output
+        run: ls -la
+      # - name: Deploy to FTP
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      #   with:
+      #     server: ${{ secrets.FTP_SERVER }}
+      #     username: ${{ secrets.FTP_USERNAME }}
+      #     password: ${{ secrets.FTP_PASSWORD }}
+      #     local-dir: ./out/
+      #     server-dir: ./
+      #     dangerous-clean-slate: false
