@@ -1,5 +1,4 @@
 export type PortfolioHighlight = {
-  /** Label before the colon, e.g. "Real-Time Logistics" */
   heading: string;
   body: string;
 };
@@ -7,13 +6,17 @@ export type PortfolioHighlight = {
 export type PortfolioProject = {
   id: string;
   title: string;
-  /** Opening paragraph shown for the active card */
   summary: string;
-  /** Bullet-style detail lines; rendered with the active card */
   highlights: PortfolioHighlight[];
   url: string;
-  /** Served from /public — use a PNG/WebP capture of the live homepage when ready */
   imageSrc: string;
+};
+
+export const portfolioIntro = {
+  eyebrow: "Portfolio",
+  title: "Engineering Excellence into Every Interface",
+  description:
+    "Every Bunshin product is a result of passion, our commitment to excellence, and our desire to solve problems while improving functionality. Below is a selection of our work with brief descriptions of the infrastructure we delivered. We hope it inspires you to consider what is possible for you!",
 };
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -33,7 +36,7 @@ export const portfolioProjects: PortfolioProject[] = [
       },
       {
         heading: "Secure Customer Portal",
-        body: "We built a dedicated hub for clients to manage their vehicle’s lifecycle, download invoices, and digitally approve quotes in seconds.",
+        body: "We built a dedicated hub for clients to manage their vehicle lifecycle, download invoices, and digitally approve quotes in seconds.",
       },
       {
         heading: "Live Supplier Integrations",

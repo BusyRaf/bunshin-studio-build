@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BunshinBuild from "@/components/BunshinBuild";
@@ -7,17 +7,11 @@ import ValuePropositions from "@/components/ValuePropositions";
 import LeadMagnet from "@/components/LeadMagnet";
 import TechnicalFAQ from "@/components/TechnicalFAQ";
 import Footer from "@/components/Footer";
+import { routeMetadata } from "@/data/seo";
 
-const Index = () => {
-  useEffect(() => {
-    if (window.location.hash) {
-      const el = document.querySelector(window.location.hash);
-      if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 0);
-      }
-    }
-  }, []);
+export const metadata: Metadata = routeMetadata["/"];
 
+export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -30,6 +24,4 @@ const Index = () => {
       <Footer />
     </div>
   );
-};
-
-export default Index;
+}

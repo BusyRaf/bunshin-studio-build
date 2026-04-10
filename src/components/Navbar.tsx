@@ -1,7 +1,9 @@
+"use client";
+
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import ghost from "../../Assets/ghost.svg";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -15,35 +17,32 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleClick = (href: string) => {
     setOpen(false);
     if (href.startsWith("#")) {
-      if (location.pathname !== "/") {
-        navigate(`/${href}`);
+      if (pathname !== "/") {
+        router.push(`/${href}`);
       } else {
         const el = document.querySelector(href);
         el?.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      navigate(href);
+      router.push(href);
     }
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <button
-          onClick={() => handleClick("/")}
-          className="flex items-center gap-2 text-left min-w-0 max-w-[calc(100vw-5rem)] sm:max-w-none"
-        >
-          <img src={ghost} alt="" className="h-8 w-auto shrink-0" />
+        <Link href="/" className="flex items-center gap-2 text-left min-w-0 max-w-[calc(100vw-5rem)] sm:max-w-none">
+          <img src="/ghost.svg" alt="" className="h-8 w-auto shrink-0" />
           <span className="font-mono text-xs sm:text-sm md:text-base font-bold text-primary tracking-wide leading-snug">
             Bunshin Development Studios
           </span>
-        </button>
+        </Link>
 
         <ul className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (

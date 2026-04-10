@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import ghost from "../../Assets/ghost.svg";
+import Link from "next/link";
 
 const trustItems = [
   "Veteran-owned",
@@ -9,8 +8,6 @@ const trustItems = [
 ] as const;
 
 const Hero = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -27,7 +24,7 @@ const Hero = () => {
         <div className="animate-fade-in-up">
           <div className="flex items-center justify-center gap-3">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
-              <img src={ghost} alt="Bunshin ghost" className="h-5 w-5" />
+              <img src="/ghost.svg" alt="Bunshin ghost" className="h-5 w-5" />
             </span>
             <p className="font-mono text-sm tracking-[0.3em] uppercase text-gradient-cyan">
               Bunshin Development Studios
@@ -53,12 +50,12 @@ const Hero = () => {
           className="flex flex-col items-center animate-fade-in-up gap-8"
           style={{ animationDelay: "0.3s" }}
         >
-          <button
-            onClick={() => navigate("/contact")}
+          <Link
+            href="/contact"
             className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold w-full sm:w-auto"
           >
             Get in Touch
-          </button>
+          </Link>
           <div className="w-full max-w-3xl border-t border-border pt-8">
             <p className="font-mono text-xs md:text-sm text-muted-foreground tracking-wide leading-relaxed">
               {trustItems.map((item, i) => (

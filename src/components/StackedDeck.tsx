@@ -1,8 +1,10 @@
+"use client";
+
 import { useCallback } from "react";
 import { motion, type Transition } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { PortfolioProject } from "@/data/portfolioProjects";
+import type { PortfolioProject } from "@/data/portfolio";
 
 const MECHANICAL: Transition = {
   type: "spring",
