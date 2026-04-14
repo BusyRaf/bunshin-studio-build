@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/ghost.svg",
+    icon: [{ url: "/ghost.svg", type: "image/svg+xml", sizes: "any" }],
   },
   openGraph: {
     title: "Bunshin Development Studios",

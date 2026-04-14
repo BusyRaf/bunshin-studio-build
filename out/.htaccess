@@ -1,0 +1,10 @@
+# SPA fallback for React Router on Apache (NameCheap Stellar)
+# Ensures direct URLs and refreshes serve index.html so the client app can route.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
