@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const trustItems = [
-  "Veteran-owned",
+  "Veteran-Owned & SDVOSB",
   "PMP & CSM Certified",
-  "HIPAA & GDPR Compliant",
+  "HIPAA & GDPR Built In",
   "Azure & AWS",
 ] as const;
 
@@ -36,15 +36,14 @@ const Hero = () => {
           className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Enterprise Software Engineering{" "}
-          <span className="text-gradient-cyan">For Your Business</span>
+          Once We&apos;re On It,{" "}
+          <span className="text-gradient-cyan">It&apos;s Our Problem.</span>
         </h1>
         <p
           className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up font-sans"
           style={{ animationDelay: "0.2s" }}
         >
-          From local businesses establishing a digital presence to mid-market companies modernizing legacy
-          infrastructure — we engineer for the long haul.
+          Senior engineers from first call to final deployment. The principals who scope your work are the ones who build it — fixed scope before the first commit, direct access, no account managers between you and the decision-makers.
         </p>
         <div
           className="flex flex-col items-center animate-fade-in-up gap-8"
@@ -54,7 +53,7 @@ const Hero = () => {
             href="/contact"
             className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold w-full sm:w-auto"
           >
-            Get in Touch
+            Schedule a Discovery Call
           </Link>
           <div className="w-full max-w-3xl border-t border-border pt-8">
             <p className="font-mono text-xs md:text-sm text-muted-foreground tracking-wide leading-relaxed">

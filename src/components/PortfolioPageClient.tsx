@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Navbar from "@/components/Navbar";
+import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
 import StackedDeck from "@/components/StackedDeck";
 import { portfolioIntro, portfolioProjects } from "@/data/portfolio";
@@ -26,6 +27,7 @@ export default function PortfolioPageClient() {
           <StackedDeck projects={portfolioProjects} stackOrder={stackOrder} onCycle={cycle} />
         </section>
       </main>
+      <BottomCTA />
       <Footer />
     </div>
   );
