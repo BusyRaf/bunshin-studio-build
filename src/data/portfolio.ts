@@ -33,23 +33,23 @@ export const portfolioProjects: PortfolioProject[] = [
     highlights: [
       {
         heading: "Real-Time Logistics",
-        body: "Our engine syncs mechanic availability with live parts stock to ensure every appointment is actionable.",
+        body: "Mechanic availability syncs with live parts stock so every appointment is actionable before it's confirmed.",
       },
       {
-        heading: "The Bunshin Lightbulb",
-        body: 'We utilize VIN-based tracking to maintain a permanent service "DNA" for every vehicle, ensuring history remains intact across multiple owners.',
+        heading: "VIN-Based Service History",
+        body: "Every vehicle carries a permanent service record tied to its VIN — history stays intact across owners, mechanics, and time.",
       },
       {
-        heading: "Secure Customer Portal",
-        body: "We built a dedicated hub for clients to manage their vehicle lifecycle, download invoices, and digitally approve quotes in seconds.",
+        heading: "Customer Portal",
+        body: "Clients manage their vehicle lifecycle, download invoices, and digitally approve quotes without calling the shop.",
       },
       {
         heading: "Live Supplier Integrations",
-        body: "Our team integrated direct APIs with NAPA and AutoZone for real-time pricing and stock validation.",
+        body: "Direct API connections to NAPA and AutoZone for real-time parts pricing and stock validation at the point of booking.",
       },
       {
-        heading: "Smart Automation",
-        body: "We deployed Twilio-powered SMS and automated email triggers that calculate service needs based on database mileage records.",
+        heading: "Automated Service Reminders",
+        body: "Twilio-powered SMS and email triggers calculate service needs from database mileage records and reach out automatically.",
       },
     ],
     url: "https://hazletonmechanic.com/",
@@ -65,12 +65,8 @@ export const portfolioProjects: PortfolioProject[] = [
       "No unified tool existed for recreational anglers to log GPS-tagged catches, compete in live tournaments, and stay connected in low-signal maritime environments on a single app. Fishing with Friends is that app — built in Flutter with Supabase, PostGIS, and Riverpod for iOS and Android. The offline-first architecture means catches log when you're on the water and sync automatically when connectivity returns. No data lost on the boat.",
     highlights: [
       {
-        heading: "Stack",
-        body: "Flutter (Riverpod, go_router) · Supabase (Auth, Storage, Realtime) · PostgreSQL + PostGIS · SQLite (offline cache) · iOS & Android.",
-      },
-      {
         heading: "Offline-First Architecture",
-        body: "SQLite outbox pattern for low-signal maritime environments; catches sync automatically when connectivity returns.",
+        body: "SQLite outbox pattern for low-signal maritime environments — catches log on the water and sync automatically when connectivity returns.",
       },
       {
         heading: "Real-Time Tournaments",
@@ -81,8 +77,12 @@ export const portfolioProjects: PortfolioProject[] = [
         body: "GPS-tagged catch entries with photo capture and species metadata, surfaced in a friend-scoped activity feed.",
       },
       {
-        heading: "PostGIS Integration",
-        body: "Geospatial catch data stored in PostGIS for location-based queries and regional catch heatmaps.",
+        heading: "Geospatial Data",
+        body: "Catch locations stored in PostGIS for location-based queries and regional catch heatmaps.",
+      },
+      {
+        heading: "Cross-Platform",
+        body: "Single Flutter codebase targeting iOS and Android — App Store and Google Play deployment.",
       },
     ],
     url: "",
@@ -101,7 +101,7 @@ export const portfolioProjects: PortfolioProject[] = [
     id: "animal-control-platform",
     title: "Animal Control & Shelter Management Platform",
     summary:
-      "Field officers currently rely on paper intake forms and manual microchip lookups across multiple separate registries — a process that is slow, error-prone, and disconnected from the shelter. This platform replaces it: 90-second digital intake, one-handed, with simultaneous lookup across four registries and an automatic SMS to the owner before the officer leaves the scene. Built as a four-surface PWA from a single codebase to compete directly against Pethealth, Pet Loyalty, and Comcate for Florida county RFPs.",
+      "Field officers currently rely on paper intake forms and manual microchip lookups across multiple separate registries — a process that is slow, error-prone, and disconnected from the shelter. This platform replaces it: 90-second digital intake, one-handed, with simultaneous lookup across four registries and an automatic SMS to the owner before the officer leaves the scene.",
     highlights: [
       {
         heading: "Four Surfaces, One Codebase",
@@ -113,15 +113,15 @@ export const portfolioProjects: PortfolioProject[] = [
       },
       {
         heading: "Multi-Registry Microchip Lookup",
-        body: "Simultaneous query across 24PetWatch, HomeAgain, AKC Reunite, and Save This Life; owner SMS notification sent before the officer leaves the scene.",
+        body: "Simultaneous query across 24PetWatch, HomeAgain, AKC Reunite, and Save This Life — owner SMS notification sent before the officer leaves the scene.",
       },
       {
         heading: "Florida Statutory Compliance",
-        body: "DOH bite reports, Statute 767 documentation, and Sunshine Law records packets shipped as first-class features — not consulting add-ons.",
+        body: "DOH bite reports, Statute 767 documentation, and Sunshine Law records packets built in as first-class features — not consulting add-ons.",
       },
       {
-        heading: "Competitive RFP Positioning",
-        body: "Built from the ground up to meet and exceed the feature scope of established municipal vendors in Florida county procurement.",
+        heading: "Offline Field Operations",
+        body: "Full intake and lookup capability without connectivity — data commits to the shelter system automatically when the officer returns to signal.",
       },
     ],
     url: "",
@@ -145,12 +145,12 @@ export const portfolioProjects: PortfolioProject[] = [
         body: "On-device suggestion engine uses reading history and ratings to surface books the user is likely to finish.",
       },
       {
-        heading: "Open Library + Google Books",
-        body: "Dual-source book lookup provides broad catalog coverage with graceful fallback.",
+        heading: "Dual-Source Book Lookup",
+        body: "Open Library API with Google Books fallback — broad catalog coverage with graceful degradation.",
       },
       {
-        heading: "Labs Project",
-        body: "ShelfMate is a Bunshin Labs build — designed and owned by the studio, engineered to the same production standard as client work.",
+        heading: "Private Annotations",
+        body: "Notes and highlights stay within the user's circle — never surfaced to a public feed.",
       },
     ],
     url: "",
@@ -163,7 +163,7 @@ export const portfolioProjects: PortfolioProject[] = [
     id: "daily-tao",
     title: "Daily Tao",
     summary:
-      "A daily Tao Te Ching verse app with scheduled push notifications — one verse per day, one daily reminder, no feed, no social layer. The simplest possible mobile product, built to demonstrate that Bunshin delivers clean, purposeful software at any scale.",
+      "A daily Tao Te Ching verse app with scheduled push notifications — one verse per day, one daily reminder, no feed, no social layer. One feature, done correctly.",
     highlights: [
       {
         heading: "One Feature, Done Right",
@@ -174,8 +174,8 @@ export const portfolioProjects: PortfolioProject[] = [
         body: "Native push notifications via APNs and FCM; scheduled delivery respects the user's local timezone.",
       },
       {
-        heading: "Range Demonstration",
-        body: "Daily Tao and the Animal Control Platform are both Bunshin products — built with the same discipline, opposite in scale.",
+        heading: "Purposeful Simplicity",
+        body: "Not every product needs to be complex. This one does exactly what it says and nothing else.",
       },
     ],
     url: "",
