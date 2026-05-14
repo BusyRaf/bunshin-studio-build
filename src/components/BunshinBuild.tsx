@@ -1,70 +1,35 @@
-import {
-  Building2,
-  Code2,
-  Cloud,
-  ShieldCheck,
-  RefreshCw,
-} from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+"use client";
 
-const capabilityRows = [
-  {
-    area: "Backend & Architecture",
-    workWith: ".NET 8, C#, Microservices, RESTful APIs, Serverless",
-  },
-  { area: "Frontend", workWith: "React, Angular, TypeScript, HTML5/CSS3" },
-  {
-    area: "Cloud & DevOps",
-    workWith: "Microsoft Azure, AWS, Docker, CI/CD, Jenkins",
-  },
-  {
-    area: "Data & Integrations",
-    workWith: "SQL Server, Entity Framework Core, OAuth/OpenID, Twilio",
-  },
-  { area: "Compliance", workWith: "HIPAA, GDPR, Security Auditing" },
-  {
-    area: "Project Governance",
-    workWith: "PMP Certified, Scrum Master Certified, Risk Analysis, Earned Value Management",
-  },
-];
+import { Briefcase, Code2, FileCheck, ShieldCheck } from "lucide-react";
 
-const offerings = [
+const differentiators = [
   {
-    icon: Building2,
-    title: "Custom Digital Builds",
+    icon: Briefcase,
+    name: "Rafael Bejaran",
+    role: "Director of Operations & Strategy",
     description:
-      "From the ground up, built to last. Architecture, design, development, SEO, security, and launch — all handled by the same senior team, start to finish. No templates, no handoffs, no junior contractors.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Legacy Modernization & Cloud Migration",
-    description:
-      "We specialize in moving complex systems to Azure and AWS without downtime, disruption, or surprises. If your platform is slowing your business down, we know exactly how to fix it.",
+      "Rafael owns the delivery commitment and the client relationship from the first call to the final handoff. Nine years in the U.S. Navy — operating across the 2nd, 5th, and 7th Fleets — built something that cannot be taught: the discipline to hold a standard when the pressure is highest. PMP® and CSM® certified, with post-service delivery leadership on high-concurrency consumer platforms. His operating principle is simple: the front looks just like the back. What you see from the outside is exactly what is happening on the inside — no spin, no managed optics, no surprises you weren't warned about first.",
   },
   {
     icon: Code2,
-    title: "Full-Stack Development",
+    name: "Jose Diaz",
+    role: "Director of Technology & Architecture",
     description:
-      "Robust backend services in .NET 8 paired with modern frontends in React and Angular. Software that performs under pressure and is intuitive enough for your whole team to use.",
+      "Jose leads with requirements, not code — which is rarer than it sounds, and it is why projects he touches tend not to go sideways. As a senior full-stack engineer at AT&T, Assurant, Talen Energy/Susquehanna Nuclear, and Jefferson Health, he has worked in environments where the cost of ambiguity is measured in outages, compliance failures, and patient care. He owns every architectural decision, every infrastructure choice, every line of production code reviewed.",
+  },
+  {
+    icon: FileCheck,
+    name: "Fixed Scope Before First Commit",
+    role: "No moving targets",
+    description:
+      "Every engagement starts with a written scope document — what gets built, what it costs, what done means. You approve it before development begins. No ambiguity at the start means no arguments at the end.",
   },
   {
     icon: ShieldCheck,
-    title: "Data Security & Compliance",
+    name: "SDVOSB Certified",
+    role: "Service-Disabled Veteran-Owned",
     description:
-      "HIPAA, GDPR, enterprise-grade security — built into the architecture from day one, not bolted on afterward.",
-  },
-  {
-    icon: Cloud,
-    title: "Strategic Platform Relaunches",
-    description:
-      "When your entire digital presence needs a rethink, not just a refresh, we manage the process end-to-end — aligning technical delivery with your business goals.",
+      "If you are a prime contractor with set-aside requirements, or a buyer who prioritizes veteran-owned sourcing, we satisfy that requirement the moment you engage us. No additional qualification steps.",
   },
 ];
 
@@ -74,47 +39,30 @@ const BunshinBuild = () => {
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-primary/3 blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Core Capabilities</h2>
-
-        <div className="glass rounded-lg overflow-hidden border border-border max-w-4xl mx-auto mb-16">
-          <Table>
-            <TableHeader>
-              <TableRow className="hover:bg-transparent border-border">
-                <TableHead className="font-mono text-primary w-[180px] md:w-[220px]">Area</TableHead>
-                <TableHead className="font-mono text-primary">What We Work With</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {capabilityRows.map((row) => (
-                <TableRow key={row.area} className="border-border">
-                  <TableCell className="font-mono text-sm text-foreground align-top">{row.area}</TableCell>
-                  <TableCell className="text-muted-foreground font-sans">{row.workWith}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        <h3 className="text-xl md:text-2xl font-bold text-center mb-4 max-w-3xl mx-auto">
-          Full-Stack Engineering. End-to-End Ownership.
-        </h3>
-        <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-12 font-sans leading-relaxed">
-          We&apos;ve spent over a decade building software that can&apos;t afford to fail — telecom networks, hospital
-          systems, critical infrastructure. That experience shapes everything we build, for every client, at every
-          scale.
+        <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase text-center mb-4">The Firm</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 max-w-3xl mx-auto">
+          You Work With the People Who Build It.
+        </h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-16 font-sans leading-relaxed">
+          Most firms sell you on senior experience and deliver junior execution. What arrives on day one is rarely what
+          showed up on the proposal. At Bunshin, the people who scope your work are the people who do it — no handoff,
+          no dilution. The partnership that runs this firm was built over decades, not just as a business but as a
+          friendship. That means no posturing, no internal negotiation, no competing priorities — one team entirely
+          pointed at your problem.
         </p>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-          {offerings.map((item) => (
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+          {differentiators.map((item) => (
             <div
-              key={item.title}
+              key={item.name}
               className="glass rounded-lg p-8 group hover:border-glow transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-6 group-hover:cyan-glow-sm transition-all duration-500">
                 <item.icon className="text-primary" size={24} />
               </div>
-              <h3 className="font-mono text-lg font-semibold mb-3">{item.title}</h3>
-              <p className="text-muted-foreground leading-relaxed font-sans">{item.description}</p>
+              <p className="font-mono text-xs text-primary tracking-wide uppercase mb-1">{item.role}</p>
+              <h3 className="font-mono text-lg font-semibold mb-3">{item.name}</h3>
+              <p className="text-muted-foreground leading-relaxed font-sans text-sm">{item.description}</p>
             </div>
           ))}
         </div>
