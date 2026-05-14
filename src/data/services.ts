@@ -16,7 +16,7 @@ export const servicesIntro = {
   eyebrow: "Services",
   title: "Senior-Led Engineering. No Hand-Offs.",
   description:
-    "Every engagement is led by the principals who scoped it — no junior developers, no account managers in between. Senior-led from first call to final deployment. Serving Jacksonville, St. Johns County, and Northeast Florida.",
+    "Every engagement is led by the principals who scoped it — no junior developers, no account managers in between. The people you meet on day one are the people who build it. Serving Jacksonville, St. Johns County, and Northeast Florida.",
 };
 
 export const serviceLines: ServiceLine[] = [
@@ -36,17 +36,17 @@ export const serviceLines: ServiceLine[] = [
     pricing: [
       {
         engagement: "Paid Discovery",
-        scope: "Scoping document + technical proposal",
+        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
         range: "$500 (credited to project)",
       },
       {
         engagement: "Fixed-Price Build",
-        scope: "Defined scope delivery",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
         range: "$5,000–$25,000",
       },
       {
         engagement: "Monthly Retainer",
-        scope: "Ongoing development & support",
+        scope: "Ongoing development and support with direct principal access — no ticket queue",
         range: "$1,500–$3,000/mo (3-month minimum)",
       },
     ],
@@ -67,17 +67,17 @@ export const serviceLines: ServiceLine[] = [
     pricing: [
       {
         engagement: "Paid Discovery",
-        scope: "Scoping document + technical proposal",
+        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
         range: "$500 (credited to project)",
       },
       {
         engagement: "Fixed-Price Build",
-        scope: "MVP to full production release",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
         range: "$8,000–$35,000",
       },
       {
         engagement: "Monthly Retainer",
-        scope: "Maintenance & ongoing features",
+        scope: "Ongoing development and support with direct principal access — no ticket queue",
         range: "$1,500–$2,500/mo",
       },
     ],
@@ -98,18 +98,18 @@ export const serviceLines: ServiceLine[] = [
     pricing: [
       {
         engagement: "Technical Audit",
-        scope: "2-week assessment + written modernization roadmap",
+        scope: "2-week assessment + written modernization roadmap — yours to keep regardless of next steps",
         range: "$1,500 (standalone deliverable)",
       },
       {
         engagement: "Migration Project",
-        scope: "Full modernization, phased delivery",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Phased delivery.",
         range: "$10,000–$50,000",
       },
       {
         engagement: "Managed Cloud Ops",
-        scope: "Ongoing infrastructure management",
-        range: "$2,000–$5,000/mo (SLA-backed)",
+        scope: "Ongoing infrastructure management with direct principal access — SLA-backed",
+        range: "$2,000–$5,000/mo",
       },
     ],
   },

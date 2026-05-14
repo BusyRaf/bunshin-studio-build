@@ -51,11 +51,11 @@ const BunshinBuild = () => {
           pointed at your problem.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {differentiators.map((item) => (
             <div
               key={item.name}
-              className="glass rounded-lg p-8 group hover:border-glow transition-all duration-500"
+              className="glass rounded-lg p-8 group hover:border-glow transition-all duration-500 flex flex-col"
             >
               <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-6 group-hover:cyan-glow-sm transition-all duration-500">
                 <item.icon className="text-primary" size={24} />
