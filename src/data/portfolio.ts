@@ -26,6 +26,39 @@ export const portfolioIntro = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: "animal-control-platform",
+    title: "Animal Control & Shelter Management Platform",
+    summary:
+      "Field officers currently rely on paper intake forms and manual microchip lookups across multiple separate registries — a process that is slow, error-prone, and disconnected from the shelter. This platform replaces it: 90-second digital intake, one-handed, with simultaneous lookup across four registries and an automatic SMS to the owner before the officer leaves the scene.",
+    highlights: [
+      {
+        heading: "Four Surfaces, One Codebase",
+        body: "Field officer, facility staff, admin console, and public portal all served from a single responsive PWA — no duplicate maintenance burden.",
+      },
+      {
+        heading: "90-Second Field Intake",
+        body: "Officers complete animal intake in under 90 seconds, one-handed, with offline sync that commits when connectivity returns.",
+      },
+      {
+        heading: "Multi-Registry Microchip Lookup",
+        body: "Simultaneous query across 24PetWatch, HomeAgain, AKC Reunite, and Save This Life — owner SMS notification sent before the officer leaves the scene.",
+      },
+      {
+        heading: "Florida Statutory Compliance",
+        body: "DOH bite reports, Statute 767 documentation, and Sunshine Law records packets built in as first-class features — not consulting add-ons.",
+      },
+      {
+        heading: "Offline Field Operations",
+        body: "Full intake and lookup capability without connectivity — data commits to the shelter system automatically when the officer returns to signal.",
+      },
+    ],
+    url: "",
+    imageSrc: "/portfolio/animal-control-platform.png",
+    tags: ["React", "PWA", "Node.js", "PostgreSQL", "Twilio", "Offline Sync"],
+    category: "Internal",
+    status: "In Development",
+  },
+  {
     id: "hazleton-mechanic",
     title: "Revup Motors LLC",
     summary:
@@ -94,39 +127,6 @@ export const portfolioProjects: PortfolioProject[] = [
       "/portfolio/fishing-with-friends-catch.png",
     ],
     tags: ["Flutter", "Riverpod", "Supabase", "PostgreSQL", "PostGIS", "go_router"],
-    category: "Internal",
-    status: "In Development",
-  },
-  {
-    id: "animal-control-platform",
-    title: "Animal Control & Shelter Management Platform",
-    summary:
-      "Field officers currently rely on paper intake forms and manual microchip lookups across multiple separate registries — a process that is slow, error-prone, and disconnected from the shelter. This platform replaces it: 90-second digital intake, one-handed, with simultaneous lookup across four registries and an automatic SMS to the owner before the officer leaves the scene.",
-    highlights: [
-      {
-        heading: "Four Surfaces, One Codebase",
-        body: "Field officer, facility staff, admin console, and public portal all served from a single responsive PWA — no duplicate maintenance burden.",
-      },
-      {
-        heading: "90-Second Field Intake",
-        body: "Officers complete animal intake in under 90 seconds, one-handed, with offline sync that commits when connectivity returns.",
-      },
-      {
-        heading: "Multi-Registry Microchip Lookup",
-        body: "Simultaneous query across 24PetWatch, HomeAgain, AKC Reunite, and Save This Life — owner SMS notification sent before the officer leaves the scene.",
-      },
-      {
-        heading: "Florida Statutory Compliance",
-        body: "DOH bite reports, Statute 767 documentation, and Sunshine Law records packets built in as first-class features — not consulting add-ons.",
-      },
-      {
-        heading: "Offline Field Operations",
-        body: "Full intake and lookup capability without connectivity — data commits to the shelter system automatically when the officer returns to signal.",
-      },
-    ],
-    url: "",
-    imageSrc: "/portfolio/animal-control-platform.png",
-    tags: ["React", "PWA", "Node.js", "PostgreSQL", "Twilio", "Offline Sync"],
     category: "Internal",
     status: "In Development",
   },
