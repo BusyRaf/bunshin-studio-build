@@ -8,14 +8,14 @@ const differentiators = [
     name: "Rafael Bejaran",
     role: "Director of Operations & Strategy",
     description:
-      "Rafael owns the delivery commitment and the client relationship from the first call to the final handoff. Nine years in the U.S. Navy — operating across the 2nd, 5th, and 7th Fleets — built something that cannot be taught: the discipline to hold a standard when the pressure is highest. PMP® and CSM® certified, with post-service delivery leadership on high-concurrency consumer platforms. His operating principle is simple: the front looks just like the back. What you see from the outside is exactly what is happening on the inside — no spin, no managed optics, no surprises you weren't warned about first.",
+      "The person accountable when complex systems failed and the stakes were real — from safety-of-flight radar suites on aircraft carriers to fleet-wide operational readiness across the 2nd, 5th, and 7th Fleets. That standard carried directly into delivery leadership on high-concurrency, high-availability consumer platforms. PMP® and CSM® certified. At Bunshin, he owns the delivery commitment and the client relationship from first call to final handoff — no spin, no managed optics, no surprises you weren't warned about first.",
   },
   {
     icon: Code2,
     name: "Jose Diaz",
     role: "Director of Technology & Architecture",
     description:
-      "Jose leads with requirements, not code — which is rarer than it sounds, and it is why projects he touches tend not to go sideways. As a senior full-stack engineer at AT&T, Assurant, Talen Energy/Susquehanna Nuclear, and Jefferson Health, he has worked in environments where the cost of ambiguity is measured in outages, compliance failures, and patient care. He owns every architectural decision, every infrastructure choice, every line of production code reviewed.",
+      "Over 12 years of full-stack engineering across Fortune 500 companies and critical infrastructure — national telecommunications systems at AT&T, enterprise claims processing at Assurant, secure plant operations software under federal regulatory requirements at Susquehanna Nuclear, and a 100% HIPAA-compliant health records migration to cloud at Jefferson Health. He has led zero-downtime migrations of mission-critical systems and knows what it costs when software in a high-stakes environment gets it wrong. He leads with requirements, not code. He owns every architectural decision, every infrastructure choice, every line of production code reviewed.",
   },
   {
     icon: FileCheck,
