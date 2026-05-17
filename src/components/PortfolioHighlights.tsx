@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { portfolioProjects } from "@/data/portfolio";
 
-const featuredIds = ["hazleton-mechanic", "animal-control-platform", "fishing-with-friends"];
+const featuredIds = ["animal-control-platform", "fishing-with-friends"];
 
 const shortDescriptions: Record<string, string> = {
   "hazleton-mechanic":
@@ -32,7 +32,7 @@ const PortfolioHighlights = () => {
           What We Built. What It Replaced.
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
           {featured.map((project) => (
             <Link
               key={project.id}
