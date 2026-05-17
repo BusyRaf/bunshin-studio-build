@@ -42,7 +42,7 @@ export const serviceLines: ServiceLine[] = [
       {
         engagement: "Fixed-Price Build",
         scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
-        range: "$5,000–$25,000",
+        range: "Scoped and priced through Discovery",
       },
       {
         engagement: "Monthly Retainer",
@@ -73,7 +73,7 @@ export const serviceLines: ServiceLine[] = [
       {
         engagement: "Fixed-Price Build",
         scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
-        range: "$8,000–$35,000",
+        range: "Scoped and priced through Discovery",
       },
       {
         engagement: "Monthly Retainer",
@@ -104,7 +104,7 @@ export const serviceLines: ServiceLine[] = [
       {
         engagement: "Migration Project",
         scope: "Approved scope before first commit. No change orders for scope we missed. Phased delivery.",
-        range: "$10,000–$50,000",
+        range: "Scoped and priced through Technical Audit",
       },
       {
         engagement: "Managed Cloud Ops",

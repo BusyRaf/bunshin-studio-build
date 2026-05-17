@@ -69,7 +69,7 @@ export default function ServicesPage() {
                             <tr className="border-b border-border">
                               <th className="text-left font-mono text-xs text-muted-foreground pb-2 pr-4 w-1/3">Engagement</th>
                               <th className="text-left font-mono text-xs text-muted-foreground pb-2 pr-4 w-1/3">Scope</th>
-                              <th className="text-left font-mono text-xs text-muted-foreground pb-2">Range</th>
+                              <th className="text-left font-mono text-xs text-muted-foreground pb-2">Pricing</th>
                             </tr>
                           </thead>
                           <tbody>
