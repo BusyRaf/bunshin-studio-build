@@ -1,120 +1,117 @@
-export type ServiceItem = {
-  heading: string;
-  body: string;
+export type PricingTier = {
+  engagement: string;
+  scope: string;
+  range: string;
 };
 
-export type ServiceSection = {
+export type ServiceLine = {
+  id: string;
   title: string;
   intro: string;
-  items: ServiceItem[];
+  capabilities: string[];
+  pricing: PricingTier[];
 };
 
 export const servicesIntro = {
   eyebrow: "Services",
-  title: "Engineering With End-to-End Accountability",
+  title: "Senior-Led Engineering. No Hand-Offs.",
   description:
-    "The same senior-led execution you see on our homepage - documented outcomes, explicit ownership, and systems built to stay reliable after launch.",
+    "Every engagement is led by the principals who scoped it. The people you meet on day one are the people who build it. Serving Jacksonville, St. Johns County, and Northeast Florida.",
 };
 
-export const serviceSections: ServiceSection[] = [
+export const serviceLines: ServiceLine[] = [
   {
-    title: "Custom Enterprise Software Engineering",
+    id: "custom-web-applications",
+    title: "Custom B2B Web Application Development",
     intro:
-      "We build scalable, high-performance solutions tailored to your specific business logic. Leveraging the power of .NET 8 and Microservices, we transform complex requirements into seamless digital experiences.",
-    items: [
-      { heading: "Greenfield Development", body: "Architecting robust, future-proof platforms from the ground up." },
+      "We build web applications around your specific business logic — not around what an off-the-shelf platform almost does. Portals, dashboards, SaaS products, and regulated workflows, engineered for the environment they will actually live in.",
+    capabilities: [
+      "Customer and client self-service portals",
+      "Operational dashboards with real-time data feeds",
+      "API-first integrations (CRM, ERP, billing platforms)",
+      "HIPAA and GDPR compliant architecture, built in — not retrofitted",
+      "SaaS multi-tenant applications",
+      "Secure document workflows and digital approval flows",
+    ],
+    pricing: [
       {
-        heading: "SaaS Product Engineering",
-        body: "Developing multi-tenant architectures designed for rapid scaling and commercial viability.",
+        engagement: "Paid Discovery",
+        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
+        range: "$500 (credited to project)",
       },
       {
-        heading: "API-First Integration",
-        body: "Unifying your tech stack by connecting disparate systems (CRM, ERP, Finance) into a cohesive ecosystem.",
+        engagement: "Fixed-Price Build",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
+        range: "Scoped and priced through Discovery",
+      },
+      {
+        engagement: "Monthly Retainer",
+        scope: "Ongoing development and support with direct principal access — no ticket queue",
+        range: "$1,500–$3,000/mo (3-month minimum)",
       },
     ],
   },
   {
-    title: "High-Performance Web & Frontend Applications",
+    id: "mobile-development",
+    title: "Native & Cross-Platform Mobile Development",
     intro:
-      'We bridge the gap between complex backend logic and intuitive user experiences. Our web applications are designed to be "command centers" - centralizing data into fast, responsive, and beautiful interfaces.',
-    items: [
+      "We build iOS and Android applications that hold up in the field — offline-first where the network is unreliable, backed by cloud infrastructure we also own and operate. From App Store submission to backend API, one team handles the full stack.",
+    capabilities: [
+      "iOS and Android applications (React Native / Flutter)",
+      "Offline-first architecture for field, logistics, and maritime environments",
+      "App Store and Google Play deployment",
+      "Backend API and cloud infrastructure included",
+      "Real-time data sync and push notifications",
+      "GPS, camera, and device sensor integrations",
+    ],
+    pricing: [
       {
-        heading: "Dynamic Dashboards",
-        body: "Crafting real-time interfaces using React and Angular that synchronize live data without page refreshes.",
+        engagement: "Paid Discovery",
+        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
+        range: "$500 (credited to project)",
       },
       {
-        heading: "Customer Experience Portals",
-        body: "Building secure, self-service hubs where your clients can manage lifecycles, approve quotes, and access documentation.",
+        engagement: "Fixed-Price Build",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
+        range: "Scoped and priced through Discovery",
       },
       {
-        heading: "Inventory & Logistics Tooling",
-        body: "Developing custom frontends for complex supply chain needs, including live stock tracking and supplier API visualizations.",
+        engagement: "Monthly Retainer",
+        scope: "Ongoing development and support with direct principal access — no ticket queue",
+        range: "$1,500–$2,500/mo",
       },
     ],
   },
   {
-    title: "Legacy System Modernization",
+    id: "legacy-modernization",
+    title: "Legacy Modernization & Cloud Operations",
     intro:
-      "Don't let aging technology bottleneck your growth. We revitalize your existing assets to improve performance, security, and maintainability.",
-    items: [
-      { heading: "Platform Evolution", body: "Seamlessly transitioning legacy .NET Framework applications to modern, high-speed .NET 8." },
-      {
-        heading: "Architectural Refactoring",
-        body: "Decomposing monolithic applications into agile microservices for enhanced reliability.",
-      },
-      {
-        heading: "UI/UX Refresh",
-        body: 'Replacing dated "internal tools" with modern, high-fidelity web environments that improve employee productivity.',
-      },
+      "We migrate aging systems to modern infrastructure without stopping your business. .NET Framework to .NET 8, monolith to microservices, on-premise to Azure or AWS — with HIPAA and CMMC compliance built into every phase. The entry point is a Technical Audit: a 2-week assessment with a written modernization roadmap you own regardless of what happens next.",
+    capabilities: [
+      ".NET Framework to .NET 8 migration",
+      "Monolith decomposition into microservices",
+      "On-premise to Azure and AWS cloud migration",
+      "Security hardening and compliance remediation (HIPAA, CMMC)",
+      "CI/CD pipeline and DevOps automation",
+      "Technical Audit: 2-week assessment with written roadmap — the recommended entry point",
     ],
-  },
-  {
-    title: "Cloud Strategy & Infrastructure Optimization",
-    intro:
-      "As certified Azure and AWS practitioners, we ensure your cloud environment is lean, secure, and cost-effective.",
-    items: [
-      { heading: "Cloud Migration", body: "Low-risk transitions from on-premise hardware to secure cloud environments." },
+    pricing: [
       {
-        heading: "Cost Management & Auditing",
-        body: "Identifying and eliminating cloud waste to reduce administrative and operational overhead.",
-      },
-      { heading: "Serverless & DevOps", body: "Implementing AWS Lambda and Azure Functions to automate scaling and minimize maintenance." },
-    ],
-  },
-  {
-    title: "Security, Compliance & Data Governance",
-    intro:
-      'We specialize in high-stakes industries where data integrity is non-negotiable. Our "security-by-design" philosophy ensures you remain protected and compliant.',
-    items: [
-      { heading: "Regulatory Alignment", body: "Expert implementation of HIPAA and GDPR standards to safeguard sensitive data." },
-      { heading: "Security Auditing", body: "Proactive vulnerability assessments and code-level security hardening." },
-      { heading: "Identity Management", body: "Implementing enterprise-grade authentication using OAuth and OpenID Connect." },
-    ],
-  },
-  {
-    title: "Strategic Consulting & Fractional CTO Services",
-    intro: "Bridging the gap between business goals and technical execution through PMP and CSM certified leadership.",
-    items: [
-      { heading: "Project Rescue & Recovery", body: "Turning around stalled initiatives by addressing technical debt and architectural flaws." },
-      { heading: "Agile Transformation", body: "Helping internal teams adopt high-velocity Scrum workflows." },
-      {
-        heading: "Technical Roadmap Analysis",
-        body: "Strategic risk assessment and feasibility studies for long-term digital investments.",
-      },
-    ],
-  },
-  {
-    title: "Intelligent Communication & Automation",
-    intro: 'We specialize in automating the "human" side of your business through integrated communication workflows.',
-    items: [
-      {
-        heading: "Automated Outreach",
-        body: "Implementing Twilio-powered SMS and voice workflows triggered by real-time database events.",
+        engagement: "Technical Audit",
+        scope: "2-week assessment + written modernization roadmap — yours to keep regardless of next steps",
+        range: "$1,500 (standalone deliverable)",
       },
       {
-        heading: "Predictive Workflows",
-        body: "Developing automation engines that calculate and trigger service needs based on historical data and usage records.",
+        engagement: "Migration Project",
+        scope: "Approved scope before first commit. No change orders for scope we missed. Phased delivery.",
+        range: "Scoped and priced through Technical Audit",
+      },
+      {
+        engagement: "Managed Cloud Ops",
+        scope: "Ongoing infrastructure management with direct principal access — SLA-backed",
+        range: "$2,000–$5,000/mo",
       },
     ],
   },
 ];
+

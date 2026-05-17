@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Solid ghost body in brand cyan -->
+  <path fill="hsl(187,100%,42%)" d="M12 2a7 7 0 0 0-7 7v11l3-2 3 2 3-2 3 2 3-2V9a7 7 0 0 0-7-7z"/>
+  <!-- Eyes filled so they survive at 16px -->
+  <circle fill="hsl(222,47%,8%)" cx="9" cy="10" r="1.2"/>
+  <circle fill="hsl(222,47%,8%)" cx="15" cy="10" r="1.2"/>
+</svg>

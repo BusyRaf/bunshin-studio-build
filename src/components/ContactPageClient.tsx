@@ -1,13 +1,30 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Phone, Mail, MessageSquare } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { contactContent } from "@/data/contact";
+
+const expectSteps = [
+  {
+    step: "01",
+    heading: "We read it the same day.",
+    body: "Every submission goes directly to a principal — not a CRM queue, not a support inbox.",
+  },
+  {
+    step: "02",
+    heading: "We schedule a 30-minute intro call.",
+    body: "No sales deck. We listen to the problem and tell you honestly whether we're the right fit.",
+  },
+  {
+    step: "03",
+    heading: "We come back with a proposal.",
+    body: "Either a Paid Discovery ($500, credited to the project) or a Technical Audit ($1,500) — whatever matches your situation.",
+  },
+];
 
 export default function ContactPageClient() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -39,7 +56,6 @@ export default function ContactPageClient() {
   };
 
   const fieldDisabled = status === "submitting" || status === "success";
-  const { person } = contactContent;
 
   return (
     <div className="min-h-screen bg-background">
@@ -47,16 +63,33 @@ export default function ContactPageClient() {
       <main className="pt-28 pb-24 md:pt-32">
         <section className="container mx-auto px-6 max-w-2xl">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">{contactContent.title}</h1>
-          <p className="text-muted-foreground text-center font-sans mb-10 max-w-xl mx-auto leading-relaxed">{contactContent.description}</p>
-          <div className="glass rounded-xl p-6 md:p-8 border border-border mb-10">
-            <p className="font-mono text-lg font-semibold text-primary mb-1">{person.name}</p>
-            <p className="text-sm text-muted-foreground font-sans mb-6">{person.role}</p>
-            <ul className="space-y-3 text-sm font-sans text-muted-foreground">
-              <li className="flex items-start gap-2"><Phone className="text-primary shrink-0 mt-0.5" size={18} /><a href={`tel:${person.phone}`} className="text-foreground font-mono hover:text-accent-purple transition-colors">{person.phoneDisplay}</a></li>
-              <li className="flex items-start gap-2"><Mail className="text-primary shrink-0 mt-0.5" size={18} /><a href={`mailto:${person.email}`} className="text-foreground font-mono hover:text-accent-purple transition-colors break-all">{person.email}</a></li>
-              <li className="flex items-start gap-2"><MessageSquare className="text-primary shrink-0 mt-0.5" size={18} /><span>{person.textNote}</span></li>
-            </ul>
+          <p className="text-muted-foreground text-center font-sans mb-6 max-w-xl mx-auto leading-relaxed">{contactContent.description}</p>
+
+          {/* Trust signal row */}
+          <p className="font-mono text-xs text-muted-foreground text-center mb-10 tracking-wide">
+            <span>SDVOSB Certified</span>
+            <span className="mx-2 text-primary/60">·</span>
+            <span>Veteran-Led</span>
+            <span className="mx-2 text-primary/60">·</span>
+            <span>Response Within One Business Day</span>
+          </p>
+
+          {/* What to expect */}
+          <div className="mb-10">
+            <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase text-center mb-6">What to Expect</p>
+            <div className="space-y-4">
+              {expectSteps.map((item) => (
+                <div key={item.step} className="flex gap-4 items-start glass rounded-lg p-4 border border-border/60">
+                  <span className="font-mono text-sm text-primary font-bold shrink-0 pt-0.5">{item.step}</span>
+                  <div>
+                    <p className="font-mono text-sm font-semibold text-foreground mb-1">{item.heading}</p>
+                    <p className="text-muted-foreground text-sm font-sans leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
           <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase text-center mb-4">{contactContent.formTitle}</p>
           <form onSubmit={handleSubmit} className="glass rounded-xl p-6 md:p-8 space-y-6 w-full border border-border shadow-[0_0_40px_rgba(0,0,0,0.45)]">
             <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-name">Name</label>
