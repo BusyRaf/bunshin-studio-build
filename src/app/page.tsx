@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import BunshinBuild from "@/components/BunshinBuild";
 import ValueCards from "@/components/ValueCards";
 import ValuePropositions from "@/components/ValuePropositions";
+import PortfolioHighlights from "@/components/PortfolioHighlights";
 import LeadMagnet from "@/components/LeadMagnet";
 import TechnicalFAQ from "@/components/TechnicalFAQ";
 import BottomCTA from "@/components/BottomCTA";
@@ -24,7 +25,7 @@ const personas = [
   },
   {
     subheading: "Growing Regional Businesses",
-    body: "You built something real, and now the systems you built it on are slowing you down. Hiring in-house feels premature. Most agencies are too slow, too expensive, or too focused on their own process to focus on yours. Bring us the vision that has been sitting in your head. We will tell you exactly what it takes — and then we will build it.",
+    body: "You built something real, and now the systems you built it on are slowing you down. Hiring in-house feels premature. Bring us the vision that has been sitting in your head. We will tell you exactly what it takes — and then we will build it.",
   },
 ];
 
@@ -65,6 +66,7 @@ export default function HomePage() {
       <Hero />
       <ValueCards />
       <WhoWeWorkWith />
+      <PortfolioHighlights />
       <BunshinBuild />
       <ValuePropositions />
       <LeadMagnet />

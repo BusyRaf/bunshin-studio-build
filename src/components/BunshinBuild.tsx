@@ -44,11 +44,8 @@ const BunshinBuild = () => {
           You Work With the People Who Build It.
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-16 font-sans leading-relaxed">
-          Most firms sell you on senior experience and deliver junior execution. What arrives on day one is rarely what
-          showed up on the proposal. At Bunshin, the people who scope your work are the people who do it — no handoff,
-          no dilution. The partnership that runs this firm was built over decades, not just as a business but as a
-          friendship. That means no posturing, no internal negotiation, no competing priorities — one team entirely
-          pointed at your problem.
+          At Bunshin, the people who scope your work are the ones who build it. Senior experience on the proposal
+          means senior execution on delivery — the same standard, the same engineers, from first call to go-live.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

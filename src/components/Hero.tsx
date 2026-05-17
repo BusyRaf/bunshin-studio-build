@@ -27,7 +27,7 @@ const Hero = () => {
               <img src="/ghost.svg" alt="Bunshin ghost" className="h-5 w-5" />
             </span>
             <p className="font-mono text-sm tracking-[0.3em] uppercase text-gradient-cyan">
-              Bunshin Development Studios
+              Software That Multiplies Your Capacity
             </p>
           </div>
           <div className="mx-auto mt-[calc((0.9rem-2px)/2)] mb-[calc((0.9rem-2px)/2)] h-[2px] w-8 rounded-full bg-primary" aria-hidden />
@@ -36,14 +36,14 @@ const Hero = () => {
           className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Once We&apos;re On It,{" "}
-          <span className="text-gradient-cyan">It&apos;s Our Problem.</span>
+          Built to the Standard of{" "}
+          <span className="text-gradient-cyan">the Environments We Came From.</span>
         </h1>
         <p
           className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up font-sans"
           style={{ animationDelay: "0.2s" }}
         >
-          Senior engineers from first call to final deployment. The principals who scope your work are the ones who build it — fixed scope before the first commit, direct access, no account managers between you and the decision-makers.
+          Nearly 30 years of delivery across nuclear energy, national telecommunications, healthcare, and military operations — now pointed at your problem. Fixed scope, fixed price, direct access. The principals who scope it build it.
         </p>
         <div
           className="flex flex-col items-center animate-fade-in-up gap-8"
