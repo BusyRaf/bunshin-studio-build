@@ -14,6 +14,7 @@ const shortDescriptions: Record<string, string> = {
 
 const statusStyles: Record<string, string> = {
   Live: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  "Private Beta": "bg-primary/10 text-primary border-primary/20",
   "In Development": "bg-primary/10 text-primary border-primary/20",
 };
 

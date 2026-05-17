@@ -56,7 +56,7 @@ export const portfolioProjects: PortfolioProject[] = [
     imageSrc: "/portfolio/animal-control-platform.png",
     tags: ["React", "PWA", "Node.js", "PostgreSQL", "Twilio", "Offline Sync"],
     category: "Internal",
-    status: "In Development",
+    status: "Private Beta",
   },
   {
     id: "hazleton-mechanic",
@@ -128,7 +128,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     tags: ["Flutter", "Riverpod", "Supabase", "PostgreSQL", "PostGIS", "go_router"],
     category: "Internal",
-    status: "In Development",
+    status: "Private Beta",
   },
   {
     id: "shelfmate",
