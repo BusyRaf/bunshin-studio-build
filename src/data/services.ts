@@ -16,7 +16,7 @@ export const servicesIntro = {
   eyebrow: "Services",
   title: "Senior-Led Engineering. No Hand-Offs.",
   description:
-    "Every engagement is led by the principals who scoped it — no junior developers, no account managers in between. The people you meet on day one are the people who build it. Serving Jacksonville, St. Johns County, and Northeast Florida.",
+    "Every engagement is led by the principals who scoped it. The people you meet on day one are the people who build it. Serving Jacksonville, St. Johns County, and Northeast Florida.",
 };
 
 export const serviceLines: ServiceLine[] = [

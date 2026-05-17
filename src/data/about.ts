@@ -15,14 +15,14 @@ export const aboutIntro = {
   eyebrow: "About",
   title: "Senior-Led Engineering. No Exceptions.",
   description:
-    "Bunshin was built by people who had spent years watching the same failure mode repeat — senior talent on the proposal, junior execution on delivery. The answer was not a better process. It was a different structure: the people who scope the work are the people who do it, and the standard that holds in a nuclear control room holds in a sprint review. That is not a value statement. It is how we operate.",
+    "Bunshin was built around a single structural commitment: the people who scope your work are the people who build it. The standard that holds in a nuclear control room holds in a sprint review. That is not a value statement. It is how we operate.",
 };
 
 export const companyFacts: CompanyFact[] = [
   { label: "Founded", value: "2025" },
   { label: "Headquarters", value: "St. Augustine, FL" },
   { label: "Certification", value: "SDVOSB — Service-Disabled Veteran-Owned Small Business" },
-  { label: "Model", value: "Senior-led — no junior developer hand-off" },
+  { label: "Model", value: "Senior-led — principals scope and build" },
   { label: "Service Area", value: "Jacksonville and Northeast Florida" },
 ];
 
@@ -32,7 +32,7 @@ export const principals: Principal[] = [
     title: "Director of Operations & Strategy",
     credentials: ["B.S. Business Administration", "PMP®", "CSM®"],
     bio: [
-      "Rafael spent his Navy career being the person accountable when complex systems failed and the stakes were real — from safety-of-flight radar suites on aircraft carriers to fleet-wide operational readiness across the 2nd, 5th, and 7th Fleets. That standard carried directly into delivery leadership on high-concurrency, high-availability consumer platforms. PMP® and CSM® certified. At Bunshin, he owns client relationships, project governance, delivery timelines, and business development — the same person who scoped your engagement is the one accountable for delivering it, with no handoffs and no account manager in between.",
+      "Rafael spent his Navy career being the person accountable when complex systems failed and the stakes were real — from safety-of-flight radar suites on aircraft carriers to fleet-wide operational readiness across the 2nd, 5th, and 7th Fleets. That standard carried directly into delivery leadership on high-concurrency, high-availability consumer platforms. PMP® and CSM® certified. At Bunshin, he owns client relationships, project governance, delivery timelines, and business development — the same person who scoped your engagement is the one accountable for delivering it.",
     ],
     highlights: [
       { label: "Theatres", value: "2nd · 5th · 7th Fleet" },
