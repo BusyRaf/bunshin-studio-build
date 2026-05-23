@@ -1,0 +1,96 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F08948"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#4CA87A"/>
+    </marker>
+    <marker id="arr-muted" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2A4A65"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0B1E30" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" fill="#E8EEF4" font-size="13" font-weight="600" letter-spacing="0.2">Friends-Only Privacy — Enforced at the Database</text>
+
+  <!-- ── CLIENT SIDE ── -->
+  <rect x="16" y="44" width="180" height="232" fill="#0F2638" rx="8" stroke="#1D3D5E" stroke-width="1.5"/>
+  <text x="106" y="64" text-anchor="middle" fill="#5B8BAA" font-size="9.5" font-weight="700" letter-spacing="1.5">CLIENT</text>
+
+  <!-- Query box -->
+  <rect x="30" y="74" width="152" height="40" fill="#162F47" rx="6"/>
+  <text x="106" y="91" text-anchor="middle" fill="#E8EEF4" font-size="11" font-weight="600">SELECT * FROM</text>
+  <text x="106" y="106" text-anchor="middle" fill="#F08948" font-size="11" font-weight="600">catches</text>
+
+  <!-- Arrow to RLS -->
+  <line x1="196" y1="155" x2="258" y2="155" stroke="#F08948" stroke-width="2" marker-end="url(#arr-orange)"/>
+  <text x="227" y="147" text-anchor="middle" fill="#5B8BAA" font-size="9">any query</text>
+
+  <!-- What client gets back -->
+  <rect x="30" y="152" width="152" height="40" fill="#162F47" rx="6" stroke="#4CA87A" stroke-width="1"/>
+  <text x="106" y="169" text-anchor="middle" fill="#E8EEF4" font-size="11" font-weight="600">Gets back only</text>
+  <text x="106" y="184" text-anchor="middle" fill="#4CA87A" font-size="11">friend rows</text>
+
+  <line x1="573" y1="155" x2="196" y2="155" stroke="#4CA87A" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-green)"/>
+
+  <rect x="30" y="220" width="152" height="36" fill="#0B1E30" rx="4"/>
+  <text x="106" y="236" text-anchor="middle" fill="#5B8BAA" font-size="9.5">No special client code.</text>
+  <text x="106" y="250" text-anchor="middle" fill="#5B8BAA" font-size="9.5">The database decides.</text>
+
+  <!-- ── RLS WALL ── -->
+  <rect x="262" y="44" width="276" height="232" fill="#0F2638" rx="8" stroke="#F08948" stroke-width="1.5"/>
+  <text x="400" y="64" text-anchor="middle" fill="#F08948" font-size="9.5" font-weight="700" letter-spacing="1.5">ROW LEVEL SECURITY POLICY</text>
+
+  <!-- Policy box -->
+  <rect x="278" y="74" width="244" height="64" fill="#162F47" rx="6" stroke="#1D3D5E" stroke-width="1"/>
+  <text x="400" y="94" text-anchor="middle" fill="#5B8BAA" font-size="10">using (</text>
+  <text x="400" y="110" text-anchor="middle" fill="#E8EEF4" font-size="10.5" font-weight="600">  user_id = auth.uid()</text>
+  <text x="400" y="125" text-anchor="middle" fill="#E8EEF4" font-size="10.5" font-weight="600">  OR is_friend(auth.uid(), user_id)</text>
+  <text x="400" y="136" text-anchor="middle" fill="#5B8BAA" font-size="10">)</text>
+
+  <!-- Evaluates -->
+  <text x="400" y="166" text-anchor="middle" fill="#5B8BAA" font-size="10">evaluates against every row · every query</text>
+
+  <!-- Two outcome boxes -->
+  <rect x="278" y="176" width="112" height="52" fill="#162F47" rx="6" stroke="#4CA87A" stroke-width="1.5"/>
+  <text x="334" y="196" text-anchor="middle" fill="#4CA87A" font-size="18">✓</text>
+  <text x="334" y="216" text-anchor="middle" fill="#E8EEF4" font-size="10" font-weight="600">friend rows</text>
+  <text x="334" y="228" text-anchor="middle" fill="#5B8BAA" font-size="9">returned</text>
+
+  <rect x="410" y="176" width="112" height="52" fill="#162F47" rx="6" stroke="#2A4A65" stroke-width="1.5"/>
+  <text x="466" y="196" text-anchor="middle" fill="#2A4A65" font-size="18">✗</text>
+  <text x="466" y="216" text-anchor="middle" fill="#5B8BAA" font-size="10" font-weight="600">all other rows</text>
+  <text x="466" y="228" text-anchor="middle" fill="#2A4A65" font-size="9">silently absent</text>
+
+  <!-- Insight -->
+  <rect x="278" y="246" width="244" height="20" fill="#0B1E30" rx="4"/>
+  <text x="400" y="260" text-anchor="middle" fill="#F08948" font-size="9.5" font-weight="600">Raw SQL queries against the DB return nothing unauthorized</text>
+
+  <!-- ── DATA SIDE ── -->
+  <rect x="604" y="44" width="180" height="232" fill="#0F2638" rx="8" stroke="#1D3D5E" stroke-width="1.5"/>
+  <text x="694" y="64" text-anchor="middle" fill="#5B8BAA" font-size="9.5" font-weight="700" letter-spacing="1.5">CATCHES TABLE</text>
+
+  <!-- Rows -->
+  <rect x="618" y="74" width="152" height="26" fill="#162F47" rx="4" stroke="#4CA87A" stroke-width="1"/>
+  <text x="694" y="91" text-anchor="middle" fill="#4CA87A" font-size="10">@you · largemouth · 6 lbs</text>
+
+  <rect x="618" y="106" width="152" height="26" fill="#162F47" rx="4" stroke="#4CA87A" stroke-width="1"/>
+  <text x="694" y="123" text-anchor="middle" fill="#4CA87A" font-size="10">@jakerivers · redfish · 4 lbs</text>
+
+  <rect x="618" y="138" width="152" height="26" fill="#0D2030" rx="4" stroke="#1A3250" stroke-width="1"/>
+  <text x="694" y="155" text-anchor="middle" fill="#243A52" font-size="10">@stranger · bass · 8 lbs</text>
+
+  <rect x="618" y="170" width="152" height="26" fill="#0D2030" rx="4" stroke="#1A3250" stroke-width="1"/>
+  <text x="694" y="187" text-anchor="middle" fill="#243A52" font-size="10">@nobody · trout · 2 lbs</text>
+
+  <rect x="618" y="202" width="152" height="26" fill="#162F47" rx="4" stroke="#4CA87A" stroke-width="1"/>
+  <text x="694" y="219" text-anchor="middle" fill="#4CA87A" font-size="10">@sarah · striper · 12 lbs</text>
+
+  <rect x="618" y="246" width="152" height="20" fill="#0B1E30" rx="4"/>
+  <text x="694" y="260" text-anchor="middle" fill="#5B8BAA" font-size="9">green = friends · gray = hidden</text>
+</svg>
