@@ -15,6 +15,7 @@ export type PortfolioProject = {
   tags?: string[];
   category?: string;
   status?: string;
+  ctaLabel?: string;
 };
 
 export const portfolioIntro = {
@@ -25,6 +26,46 @@ export const portfolioIntro = {
 };
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: "fishing-with-friends",
+    title: "Fishing with Friends",
+    summary:
+      "No unified tool existed for recreational anglers to log GPS-tagged catches, compete in live tournaments, and stay connected in low-signal maritime environments on a single app. Fishing with Friends is that app — built in Flutter with Supabase, PostGIS, and Riverpod for iOS and Android. The offline-first architecture means catches log when you're on the water and sync automatically when connectivity returns. No data lost on the boat.",
+    highlights: [
+      {
+        heading: "Offline-First Architecture",
+        body: "SQLite outbox pattern for low-signal maritime environments — catches log on the water and sync automatically when connectivity returns.",
+      },
+      {
+        heading: "Real-Time Tournaments",
+        body: "Competitive leaderboards powered by Supabase Realtime; scores update live without page refresh.",
+      },
+      {
+        heading: "Catch Logging",
+        body: "GPS-tagged catch entries with photo capture and species metadata, surfaced in a friend-scoped activity feed.",
+      },
+      {
+        heading: "Geospatial Data",
+        body: "Catch locations stored in PostGIS for location-based queries and regional catch heatmaps.",
+      },
+      {
+        heading: "Cross-Platform",
+        body: "Single Flutter codebase targeting iOS and Android — App Store and Google Play deployment.",
+      },
+    ],
+    url: "",
+    imageSrc: "/portfolio/fishing-with-friends.png",
+    imagePosition: "center 14%",
+    images: [
+      "/portfolio/fishing-with-friends.png",
+      "/portfolio/fishing-with-friends-profile.png",
+      "/portfolio/fishing-with-friends-catch.png",
+    ],
+    tags: ["Flutter", "Riverpod", "Supabase", "PostgreSQL", "PostGIS", "go_router"],
+    category: "Internal",
+    status: "Private Beta",
+    ctaLabel: "Read Case Study",
+  },
   {
     id: "animal-control-platform",
     title: "Animal Control & Shelter Management Platform",
@@ -90,45 +131,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tags: ["Next.js", "Node.js", "NAPA API", "AutoZone API", "Twilio", "PostgreSQL"],
     category: "Client Work",
     status: "Live",
-  },
-  {
-    id: "fishing-with-friends",
-    title: "Fishing with Friends",
-    summary:
-      "No unified tool existed for recreational anglers to log GPS-tagged catches, compete in live tournaments, and stay connected in low-signal maritime environments on a single app. Fishing with Friends is that app — built in Flutter with Supabase, PostGIS, and Riverpod for iOS and Android. The offline-first architecture means catches log when you're on the water and sync automatically when connectivity returns. No data lost on the boat.",
-    highlights: [
-      {
-        heading: "Offline-First Architecture",
-        body: "SQLite outbox pattern for low-signal maritime environments — catches log on the water and sync automatically when connectivity returns.",
-      },
-      {
-        heading: "Real-Time Tournaments",
-        body: "Competitive leaderboards powered by Supabase Realtime; scores update live without page refresh.",
-      },
-      {
-        heading: "Catch Logging",
-        body: "GPS-tagged catch entries with photo capture and species metadata, surfaced in a friend-scoped activity feed.",
-      },
-      {
-        heading: "Geospatial Data",
-        body: "Catch locations stored in PostGIS for location-based queries and regional catch heatmaps.",
-      },
-      {
-        heading: "Cross-Platform",
-        body: "Single Flutter codebase targeting iOS and Android — App Store and Google Play deployment.",
-      },
-    ],
-    url: "",
-    imageSrc: "/portfolio/fishing-with-friends.png",
-    imagePosition: "center 14%",
-    images: [
-      "/portfolio/fishing-with-friends.png",
-      "/portfolio/fishing-with-friends-profile.png",
-      "/portfolio/fishing-with-friends-catch.png",
-    ],
-    tags: ["Flutter", "Riverpod", "Supabase", "PostgreSQL", "PostGIS", "go_router"],
-    category: "Internal",
-    status: "Private Beta",
   },
   {
     id: "shelfmate",

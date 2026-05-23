@@ -6,14 +6,14 @@ import FishingWithFriendsCaseStudy from "@/content/case-studies/fishing-with-fri
 const canonicalUrl = `${siteConfig.url}/portfolio/fishing-with-friends/`
 
 export const metadata: Metadata = {
-  title: "Fishing with Friends | Case Study — Bunshin Development Studios",
+  title: "Fishing with Friends | Case Study",
   description:
     "How we built an offline-first fishing app with Flutter and Supabase — covering RLS privacy, SQLite sync, and live tournament leaderboards.",
   alternates: {
     canonical: canonicalUrl,
   },
   openGraph: {
-    title: "Fishing with Friends | Case Study — Bunshin Development Studios",
+    title: "Fishing with Friends | Case Study",
     description:
       "How we built an offline-first fishing app with Flutter and Supabase — covering RLS privacy, SQLite sync, and live tournament leaderboards.",
     type: "article",

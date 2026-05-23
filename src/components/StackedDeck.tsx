@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback } from "react";
+import Link from "next/link";
 import { motion, type Transition } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { PortfolioProject } from "@/data/portfolio";
 
@@ -69,8 +70,9 @@ const StackedDeck = ({ projects, stackOrder, onCycle }: StackedDeckProps) => {
               >
                 <img
                   src={project.imageSrc}
-                  alt={`${project.title} homepage screenshot`}
-                  className="h-full w-full object-cover object-left-top"
+                  alt={`${project.title} screenshot`}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: project.imagePosition ?? "left top" }}
                   draggable={false}
                 />
                 {isFront && (
@@ -104,17 +106,30 @@ const StackedDeck = ({ projects, stackOrder, onCycle }: StackedDeckProps) => {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col sm:flex-row sm:justify-end pt-2">
+          <div className="flex flex-col sm:flex-row sm:justify-end gap-3 pt-2">
             <Button
               asChild
               size="lg"
-              className="font-mono w-full sm:w-auto cyan-glow hover:bg-accent-purple hover:text-accent-foreground transition-all duration-300"
+              variant="outline"
+              className="font-mono w-full sm:w-auto transition-all duration-300"
             >
-              <a href={front.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                Launch Project
-                <ExternalLink className="size-4" aria-hidden />
-              </a>
+              <Link href={`/portfolio/${front.id}`} onClick={(e) => e.stopPropagation()}>
+                {front.ctaLabel ?? "View Details"}
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
             </Button>
+            {front.url && (
+              <Button
+                asChild
+                size="lg"
+                className="font-mono w-full sm:w-auto cyan-glow hover:bg-accent-purple hover:text-accent-foreground transition-all duration-300"
+              >
+                <a href={front.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                  Launch Project
+                  <ExternalLink className="size-4" aria-hidden />
+                </a>
+              </Button>
+            )}
           </div>
         </motion.div>
       )}
