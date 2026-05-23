@@ -8,14 +8,14 @@ const canonicalUrl = `${siteConfig.url}/portfolio/fishing-with-friends/`
 export const metadata: Metadata = {
   title: "Fishing with Friends | Case Study",
   description:
-    "How we built an offline-first fishing app with Flutter and Supabase — covering RLS privacy, SQLite sync, and live tournament leaderboards.",
+    "How Bunshin built an offline-first fishing app for iOS and Android — offline sync, database-layer privacy, and live tournament leaderboards.",
   alternates: {
     canonical: canonicalUrl,
   },
   openGraph: {
     title: "Fishing with Friends | Case Study",
     description:
-      "How we built an offline-first fishing app with Flutter and Supabase — covering RLS privacy, SQLite sync, and live tournament leaderboards.",
+      "How Bunshin built an offline-first fishing app for iOS and Android — offline sync, database-layer privacy, and live tournament leaderboards.",
     type: "article",
     url: canonicalUrl,
     images: [
@@ -37,7 +37,7 @@ const jsonLd = {
       "@id": `${canonicalUrl}#article`,
       headline: "Building an Offline-First Fishing App with Flutter and Supabase",
       description:
-        "A technical case study on how Bunshin Development Studios built Fishing with Friends — covering offline-first architecture, friends-only privacy enforced via Postgres Row Level Security, live tournament leaderboards with Supabase Realtime, and a milestone-based delivery approach.",
+        "How Bunshin Development Studios built Fishing with Friends — an offline-first fishing app for iOS and Android with database-layer privacy, live tournament leaderboards, and milestone-based delivery.",
       author: {
         "@type": "Organization",
         name: "Bunshin Development Studios",
@@ -58,7 +58,7 @@ const jsonLd = {
       image: `${siteConfig.url}/og/fishing-with-friends.jpg`,
       about: { "@id": `${canonicalUrl}#app` },
       keywords:
-        "Flutter, Supabase, offline-first, mobile app development, PostgreSQL RLS, Drift, SQLite, row level security, real-time leaderboard, fishing app, iOS, Android",
+        "Flutter, offline-first, mobile app development, real-time leaderboard, fishing app, iOS, Android, database privacy, custom mobile development",
     },
     {
       "@type": "SoftwareApplication",

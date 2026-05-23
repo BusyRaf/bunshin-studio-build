@@ -2,16 +2,11 @@
 
 ## The product
 
-The starting point was an early web prototype that covered the basic shape: log a catch, see your friends' catches, run a tournament. It proved the concept but felt like a logbook port rather than a product. The rebuild had two requirements that had to ship together: the app needed to be useful to a solo angler on a Tuesday, and compelling enough during a Saturday tournament that they'd actually invite people to it. A logbook without the social hook is a notes app. Social features without solo value means the app only works when people already have friends on it. Both had to be real from day one.
+Fishing with Friends is an iOS and Android app for recreational anglers — catch logging, trip tracking, and live tournaments with friends. We built it in-house at Bunshin as a full commercial product, shipped to the App Store and Google Play in spring 2026.
 
-The social model is friends-only throughout. No public feed, no public profiles, no public discovery. Every catch is visible only to confirmed friends, and we enforce that at the database level — not as a client-side filter. A developer writing a raw query against the `catches` table still can't read another user's data; the RLS policies won't return the rows. This decision was foundational — it went in before any features were built, and it propagated to every feature we added afterward. When we added tournaments, the same pattern held: non-friend tournament members can see submitted catch entries, but only because we snapshot the relevant fields onto the `tournament_entries` table at submission time. The underlying catch record stays private.
+The brief had two requirements that had to ship together: genuinely useful to a solo angler on a Tuesday, and compelling enough during a live tournament that they'd actually invite people to it. A logbook without the social hook is a notes app. Social features without solo value means the app only works when people already have friends on it. Both had to be real from day one.
 
-Marine Protected Area coordinates get an additional treatment on the map. If a catch falls inside an MPA boundary, we shift the displayed pin to the nearest non-MPA water feature before rendering it. The raw GPS is stored privately and never mutated. The fail-safe here is asymmetric by design: we'd rather suppress a catch that's technically outside the real boundary than display one that's inside it. The dataset is a bundled GeoJSON file — under 2MB — rather than a runtime API call, which matters for the next section.
-
-<Diagram
-  src="/portfolio/fishing-with-friends/diagrams/02-privacy-model.svg"
-  alt="Friends-only RLS privacy diagram — only friend rows returned, others hidden"
-/>
+The social model is friends-only throughout. No public feed, no public profiles, no public discovery. Every catch is visible only to confirmed friends — enforced at the database level, not as a client-side filter. This decision was foundational and propagated to every feature that followed.
 
 </Section>
 
@@ -27,64 +22,49 @@ Marine Protected Area coordinates get an additional treatment on the map. If a c
 
 <Section>
 
-## Offline-first
+## Where it gets hard
 
-The most consequential decision was making offline sync non-negotiable from day one. Boats and remote rivers don't have reliable LTE, and "log a catch" is exactly the feature that gets used when you're out of signal. We built a SQLite outbox using Drift: when a save happens offline, it writes to the local queue and returns immediately. Photos go to the device filesystem. On reconnect, a sync orchestrator drains the queue in order — photos first, then the catch row — and retries on failure with exponential backoff.
+Three categories of problems in this build don't have obvious solutions. We solved all three before any of them were features.
 
-The design goal was that no feature screen in the app should need to know whether it's operating offline or online. Stats, Map, Year-in-Review — none of them handle a "queued" state because they don't see one. The provider that backs my catches merges synced and pending rows before anything consumes it. When we shipped the offline layer after the rest of the UI was stable, none of those screens changed.
+**Offline in the field.** Fishing happens where phones don't have signal. "Log a catch" is exactly the feature that gets used in the middle of a lake or a remote river. We built the app so that every feature works without connectivity — catches, photos, stats, maps — and syncs automatically when signal returns. No loading spinners. No error states. No data lost on the boat. No UI screen in the app was ever written to handle an offline state, because none of them see one.
 
-Personal record detection runs as a Postgres trigger on every catch insert. This matters because of the offline queue: when a catch finally syncs, the trigger fires at commit time on the server, with the authoritative data. If we'd done record detection on the client, two devices syncing in different orders would disagree on who holds the record. The trigger approach means the server is always the single source of truth, regardless of how or when the catch arrived.
+**Privacy that can't be circumvented.** Friend-scoped visibility is enforced at the database layer — not as a UI rule that a determined developer could route around. A raw query against the catches table still can't return another user's data. When we added tournaments later, the same pattern held: competitors see what they need to see during a competition without touching the underlying private records.
+
+**Live competition at scale.** Tournament leaderboards need to update when entries are approved — without a page refresh, and without anyone waiting. We wired real-time updates across the full tournament flow without compromising the privacy model. The two requirements don't naturally coexist; making them work together required deliberate architecture.
 
 <Diagram
   src="/portfolio/fishing-with-friends/diagrams/01-offline-sync.svg"
-  alt="SQLite outbox → Supabase sync flow — offline catch queued then drained on reconnect"
+  alt="Offline-first sync architecture — catches queue locally and drain to the server on reconnect"
 />
 
 </Section>
 
 <Section>
 
-## A few places we didn't follow the standard recommendation
+## How we delivered it
 
-**Auth flow.** PKCE is the standard for mobile OAuth and we use implicit flow instead. Password-recovery email links open in Safari on iOS, not in the app, so the `code_verifier` from the original auth session isn't accessible when the user returns. With PKCE, that means recovery silently fails. We documented this in code comments so it doesn't get reversed by someone who just reads "use PKCE" in the Supabase docs.
+Seven milestones, each planned when the previous one shipped. The core experience came first — the visual system, then real catch persistence end-to-end, then the social and competitive layers, then the storytelling and statistics layer, then offline sync.
 
-**Conditions enrichment.** When you save a catch, the app eventually fills in weather, tide, and moon phase from the catch's GPS and timestamp. "Eventually" is the key word. A Postgres `AFTER INSERT` trigger calls `pg_net.http_post` to a Supabase edge function, which in turn queries Open-Meteo and NOAA Tides. This is fire-and-forget from the database's perspective. If the APIs are slow or down, the catch saves instantly and conditions stay empty. The user never sees a failure caused by a third-party service they didn't explicitly interact with. Moon phase is computed locally in the edge function using Conway's approximation, so it populates even when the network is unreliable.
+Offline sync shipped last, after the rest of the UI was stable. That sequencing was intentional: by the time the sync layer landed, zero existing screens had to change. The architecture made it additive rather than disruptive.
 
-**MPA boundary checks.** The original plan was to fetch MPA boundary polygons from a live NOAA API. We dropped that because it would have broken the offline-first contract — every map render would require a network call. The bundled GeoJSON approach uses a curated subset of US MPA data, under 2MB, with a 30-line ray-casting implementation to check point-in-polygon. We didn't pull in a spatial library like `turf_dart` because the query set is small and a 100KB dependency wasn't worth it for 13 polygons.
-
-</Section>
-
-<Section>
-
-## Tournaments
-
-The tournament flow required Supabase Realtime because the leaderboard needs to update live — when a creator approves an entry, everyone watching should see the reorder without refreshing. We subscribe to Postgres Changes filtered by `tournament_id` on two tables: `tournament_entries` and `tournament_chat_messages`. The client holds the current state locally and patches it on each event.
-
-One thing that took some design: tournament members are often not friends with each other, but they still need to see each other's submitted catches on the leaderboard. The solution was to snapshot the relevant fields — species, weight, length, first photo, timestamp — onto the `tournament_entries` row at submission time. The underlying `catches` record stays private. This means late edits to a catch don't retroactively change tournament standings, which is actually the correct behavior.
-
-RLS for tournament approvals had a recursion problem: the policy needed to check whether the requesting user was the tournament creator, but that check itself was a row-level operation. We resolved it with a `security definer` helper function that evaluates the check outside the policy context.
-
-<Diagram
-  src="/portfolio/fishing-with-friends/diagrams/03-tournament-snapshot.svg"
-  alt="Tournament entry snapshot schema — catches vs tournament_entries fields"
-/>
+Each milestone extended the integration test suite of the previous one. The privacy contract was tested at every level of the stack from the beginning — not added as a compliance check at the end. By the time tournament features shipped, we had assertions that verified the access model held across every new surface.
 
 </Section>
 
 <Section>
 
-## How the build was structured
+## What this demonstrates
 
-We ran seven milestones, each planned when the previous one shipped. M0 was the visual system and navigation shell. M1 was real catch persistence end-to-end. M2 added trips and the activity feed. M3 was tournaments. M4 was the catch map and stats. M5 was the storytelling layer — personal records, badges, streaks, share cards, Year-in-Review. M6 was offline sync, conditions auto-fill, and push notifications.
+FWF is a production product on two app stores, built by the same team that works on client projects. The offline-first architecture, the database-layer privacy model, and the real-time competitive features are all problems that come up in the apps our clients actually need — field operations software, healthcare tools, logistics platforms, anything that runs in environments where connectivity or data privacy can't be taken for granted.
 
-Each milestone had an integration test suite that extended the previous one. The friends-only RLS tests run against a real Supabase project and verify the privacy contract at every level of the stack. By the time M3 shipped, we had assertions that a non-friend tournament member could read submitted entry snapshots but not the underlying catch row.
+We've built this class of problem before. We know where the edge cases are. We know which early decisions propagate to every feature that follows.
 
-For every major architectural decision, we wrote up what we chose, why, and the specific conditions under which we'd revisit it. The sync queue, for instance, is the right tool until friend catches need offline read parity too — at which point we'd move to a richer sync model. The bundled MPA data makes sense until the polygon set grows past a few dozen — at which point a spatial library earns its weight. These aren't vague notes; they're decision criteria written down while the context is fresh, so whoever touches the code next doesn't have to reconstruct the reasoning from scratch.
+If you're building something with similar constraints — offline reliability, strict privacy requirements, real-time collaborative features — we have a complete technical case study we share with serious prospects. Reach out and we'll send it over.
 
 </Section>
 
 <Section>
 
-**Stack:** Flutter 3.41 · Riverpod · go\_router · Supabase (PostgreSQL, Realtime, Gotrue, Storage) · Drift · Deno edge functions · Firebase Cloud Messaging · Open-Meteo · NOAA Tides & Currents
+**Stack:** Flutter · Supabase · PostgreSQL · Dart · iOS · Android
 
 </Section>
