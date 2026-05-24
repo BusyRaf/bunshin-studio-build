@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, Code2, FileCheck, ShieldCheck } from "lucide-react";
+import { Briefcase, Code2, FileCheck } from "lucide-react";
 
 const differentiators = [
   {
@@ -23,13 +23,6 @@ const differentiators = [
     role: "No moving targets",
     description:
       "Every engagement starts with a written scope document — what gets built, what it costs, what done means. You approve it before development begins. No ambiguity at the start means no arguments at the end.",
-  },
-  {
-    icon: ShieldCheck,
-    name: "SDVOSB Certified",
-    role: "Service-Disabled Veteran-Owned",
-    description:
-      "If you are a prime contractor with set-aside requirements, or a buyer who prioritizes veteran-owned sourcing, we satisfy that requirement the moment you engage us. No additional qualification steps.",
   },
 ];
 

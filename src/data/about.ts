@@ -21,7 +21,6 @@ export const aboutIntro = {
 export const companyFacts: CompanyFact[] = [
   { label: "Founded", value: "2025" },
   { label: "Headquarters", value: "St. Augustine, FL" },
-  { label: "Certification", value: "SDVOSB — Service-Disabled Veteran-Owned Small Business" },
   { label: "Model", value: "Senior-led — principals scope and build" },
   { label: "Service Area", value: "Jacksonville and Northeast Florida" },
 ];

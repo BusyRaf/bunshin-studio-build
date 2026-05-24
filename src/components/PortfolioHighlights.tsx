@@ -4,8 +4,6 @@ import { portfolioProjects } from "@/data/portfolio";
 const featuredIds = ["animal-control-platform", "fishing-with-friends"];
 
 const shortDescriptions: Record<string, string> = {
-  "hazleton-mechanic":
-    "Replaced a phone-and-whiteboard scheduling process with a booking suite that syncs mechanic availability with live parts inventory — every appointment fully actionable before the customer hangs up.",
   "animal-control-platform":
     "90-second digital field intake, one-handed, with simultaneous lookup across four microchip registries and automatic owner notification before the officer leaves the scene.",
   "fishing-with-friends":
@@ -14,6 +12,7 @@ const shortDescriptions: Record<string, string> = {
 
 const statusStyles: Record<string, string> = {
   Live: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  Available: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   "Private Beta": "bg-primary/10 text-primary border-primary/20",
   "In Development": "bg-primary/10 text-primary border-primary/20",
 };

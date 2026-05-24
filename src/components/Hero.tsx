@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const trustItems = [
-  "Veteran-Owned & SDVOSB",
+  "Veteran-Owned",
   "PMP & CSM Certified",
   "HIPAA & GDPR Built In",
   "Azure & AWS",

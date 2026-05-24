@@ -89,10 +89,16 @@ const StackedDeck = ({ projects, stackOrder, onCycle }: StackedDeckProps) => {
         </div>
       </div>
 
+      {canCycle && (
+        <p className="mt-5 text-center font-mono text-xs text-muted-foreground tracking-wide">
+          ↺ Click the card to cycle projects
+        </p>
+      )}
+
       {front && (
         <motion.div
           key={front.id}
-          className="mt-10 space-y-6"
+          className="mt-6 space-y-6"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={MECHANICAL}
@@ -134,11 +140,6 @@ const StackedDeck = ({ projects, stackOrder, onCycle }: StackedDeckProps) => {
         </motion.div>
       )}
 
-      {canCycle && (
-        <p className="mt-4 text-center text-xs text-muted-foreground font-mono">
-          Click the top card to advance the stack
-        </p>
-      )}
     </div>
   );
 };

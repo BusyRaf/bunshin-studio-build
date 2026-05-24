@@ -1,39 +1,7 @@
 "use client";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
-const faqItems = [
-  {
-    id: "item-1",
-    question: "What industries have you worked in?",
-    answer:
-      "Healthcare, nuclear energy, maritime security, cryptocurrency, and military applications. We're comfortable operating in high-stakes, highly regulated environments — and we bring that same discipline to every engagement regardless of industry.",
-  },
-  {
-    id: "item-2",
-    question: "How do you work alongside existing internal teams?",
-    answer:
-      "We start by meeting with your team to understand internal boundaries, define roles, gather documentation, and elicit requirements. We integrate without disrupting — your team stays focused on what they do best while we handle what you need us to.",
-  },
-  {
-    id: "item-3",
-    question: "How do you manage scope, timeline, and budget on complex projects?",
-    answer:
-      "With rigor. We use tools like Jira and Confluence alongside PMI methodologies and Earned Value Management to ensure every task has an owner, a timeline, a budget, and clearly defined requirements and outcomes. Nothing falls through the cracks.",
-  },
-  {
-    id: "item-4",
-    question: "What makes Bunshin different from a larger agency or consultancy?",
-    answer:
-      "We operate with a sense of urgency and ownership that larger firms can't replicate. At Bunshin, time is not the differentiator — leadership, initiative, and hard work are. That's what separates excellent outcomes from mediocre ones, and it's the standard we hold ourselves to on every project.",
-  },
-  {
-    id: "item-5",
-    question: "How do you handle compliance and data security requirements?",
-    answer:
-      "Built in from the start, not added afterward. We have hands-on experience with HIPAA, GDPR, and security requirements across some of the most sensitive environments in the world. Compliance isn't a checklist for us — it's a baseline.",
-  },
-];
+import { faqItems } from "@/data/faq";
 
 const TechnicalFAQ = () => {
   return (

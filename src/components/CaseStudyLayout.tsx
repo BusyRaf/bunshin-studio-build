@@ -61,8 +61,34 @@ export default function CaseStudyLayout({
           {children}
         </div>
 
+        {/* CTA */}
+        <section className="container mx-auto px-6 max-w-4xl mt-4">
+          <div className="glass rounded-xl border border-primary/20 bg-primary/5 p-10 md:p-14 text-center">
+            <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-4">
+              Work with us
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Have a project with similar constraints?
+            </h2>
+            <p className="text-muted-foreground font-sans leading-relaxed max-w-xl mx-auto mb-3">
+              Reach out and let&apos;s talk. For serious prospects, we also share the full technical
+              case study — architecture decisions, implementation patterns, and the edge cases we
+              hit along the way.
+            </p>
+            <p className="text-muted-foreground/60 font-mono text-xs mb-8">
+              Not posted publicly. Shared after a discovery call.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-mono text-sm font-semibold px-7 py-3.5 rounded-lg hover:bg-primary/90 transition-colors duration-200"
+            >
+              Start the conversation →
+            </Link>
+          </div>
+        </section>
+
         {/* Back nav */}
-        <section className="container mx-auto px-6 max-w-4xl mt-4 flex items-center justify-between">
+        <section className="container mx-auto px-6 max-w-4xl mt-8 flex items-center justify-between">
           <Link
             href="/portfolio"
             className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300"

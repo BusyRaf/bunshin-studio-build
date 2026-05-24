@@ -67,8 +67,6 @@ export default function ContactPageClient() {
 
           {/* Trust signal row */}
           <p className="font-mono text-xs text-muted-foreground text-center mb-10 tracking-wide">
-            <span>SDVOSB Certified</span>
-            <span className="mx-2 text-primary/60">·</span>
             <span>Veteran-Led</span>
             <span className="mx-2 text-primary/60">·</span>
             <span>Response Within One Business Day</span>

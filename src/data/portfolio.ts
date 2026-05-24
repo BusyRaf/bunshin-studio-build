@@ -54,8 +54,8 @@ export const portfolioProjects: PortfolioProject[] = [
       },
     ],
     url: "",
-    imageSrc: "/portfolio/fishing-with-friends.png",
-    imagePosition: "center 14%",
+    imageSrc: "/portfolio/fishing-with-friends-card.png",
+    imagePosition: "center center",
     images: [
       "/portfolio/fishing-with-friends.png",
       "/portfolio/fishing-with-friends-profile.png",
@@ -94,43 +94,17 @@ export const portfolioProjects: PortfolioProject[] = [
       },
     ],
     url: "",
-    imageSrc: "/portfolio/animal-control-platform.png",
+    imageSrc: "/portfolio/animal-control-platform/screenshots/03-dispatch-console.png",
+    imagePosition: "center top",
+    images: [
+      "/portfolio/animal-control-platform/screenshots/03-dispatch-console.png",
+      "/portfolio/animal-control-platform/screenshots/04-animal-record.png",
+      "/portfolio/animal-control-platform/screenshots/05-kennel-board.png",
+      "/portfolio/animal-control-platform/screenshots/06-field-intake.png",
+    ],
     tags: ["React", "PWA", "Node.js", "PostgreSQL", "Twilio", "Offline Sync"],
     category: "Internal",
-    status: "Private Beta",
-  },
-  {
-    id: "hazleton-mechanic",
-    title: "Revup Motors LLC",
-    summary:
-      "Revup Motors ran on phone calls, whiteboards, and a scheduling process that created double-bookings, parts mismatches, and customer friction. We replaced it with a booking and management suite that synchronizes mechanic availability with live parts inventory — making every appointment fully actionable before the customer hangs up the phone. Manual process in. Coordinated operation out.",
-    highlights: [
-      {
-        heading: "Real-Time Logistics",
-        body: "Mechanic availability syncs with live parts stock so every appointment is actionable before it's confirmed.",
-      },
-      {
-        heading: "VIN-Based Service History",
-        body: "Every vehicle carries a permanent service record tied to its VIN — history stays intact across owners, mechanics, and time.",
-      },
-      {
-        heading: "Customer Portal",
-        body: "Clients manage their vehicle lifecycle, download invoices, and digitally approve quotes without calling the shop.",
-      },
-      {
-        heading: "Live Supplier Integrations",
-        body: "Direct API connections to NAPA and AutoZone for real-time parts pricing and stock validation at the point of booking.",
-      },
-      {
-        heading: "Automated Service Reminders",
-        body: "Twilio-powered SMS and email triggers calculate service needs from database mileage records and reach out automatically.",
-      },
-    ],
-    url: "https://hazletonmechanic.com/",
-    imageSrc: "/portfolio/revup-motors-hazleton.png",
-    tags: ["Next.js", "Node.js", "NAPA API", "AutoZone API", "Twilio", "PostgreSQL"],
-    category: "Client Work",
-    status: "Live",
+    status: "Available",
   },
   {
     id: "shelfmate",

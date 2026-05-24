@@ -46,7 +46,11 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               <span className="font-mono text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">{project.category}</span>
             )}
             {project.status && (
-              <span className="font-mono text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded">{project.status}</span>
+              <span className={`font-mono text-xs px-2 py-0.5 rounded border ${
+                project.status === "Live" || project.status === "Available"
+                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                  : "bg-muted/50 text-muted-foreground border-border/60"
+              }`}>{project.status}</span>
             )}
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h1>
@@ -62,7 +66,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         {/* Image(s) */}
         {project.images && project.images.length > 1 ? (
           <section className="container mx-auto px-6 max-w-4xl mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className={`grid gap-4 ${project.images.length === 4 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-3"}`}>
               {project.images.map((src, i) => (
                 <img
                   key={src}

@@ -27,7 +27,7 @@ export const faqItems: FaqItem[] = [
     id: "item-4",
     question: "How does Bunshin actually run an engagement?",
     answer:
-      "Every engagement starts with a written scope document and a fixed price — you approve both before development begins. The principals who scope your work are the ones who build it. You have direct access to the engineers throughout. If you are a prime contractor or government buyer, we carry SDVOSB certification, which satisfies set-aside requirements without additional qualification steps. The people running this firm spent nearly 30 years delivering in nuclear energy, national telecommunications, healthcare, and military environments — and that standard applies to every project we take on.",
+      "Every engagement starts with a written scope document and a fixed price — you approve both before development begins. The principals who scope your work are the ones who build it. You have direct access to the engineers throughout. The people running this firm spent nearly 30 years delivering in nuclear energy, national telecommunications, healthcare, and military environments — and that standard applies to every project we take on.",
   },
   {
     id: "item-5",
