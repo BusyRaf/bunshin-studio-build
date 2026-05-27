@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/seo";
 
 export function generateStaticParams() {
   // Exclude projects that have a dedicated static route (e.g. fishing-with-friends/page.tsx)
-  const staticRouteIds = new Set(["fishing-with-friends"])
+  const staticRouteIds = new Set(["fishing-with-friends", "animal-control-platform"])
   return portfolioProjects
     .filter((project) => !staticRouteIds.has(project.id))
     .map((project) => ({ projectId: project.id }))
@@ -107,6 +107,31 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             ))}
           </div>
         </section>
+
+        {/* Testimonial */}
+        {project.testimonial && (
+          <section className="container mx-auto px-6 max-w-4xl mb-12">
+            <div className="glass rounded-xl p-8 md:p-10 border border-border">
+              <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-6">Client Review</p>
+              <blockquote className="text-foreground font-sans text-lg leading-relaxed mb-6">
+                &ldquo;{project.testimonial.quote}&rdquo;
+              </blockquote>
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-sm text-muted-foreground">{project.testimonial.author}</p>
+                {project.testimonial.href && (
+                  <a
+                    href={project.testimonial.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs text-primary hover:text-accent-purple transition-colors duration-300"
+                  >
+                    ★★★★★ Google Review →
+                  </a>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Footer row */}
         <section className="container mx-auto px-6 max-w-4xl flex items-center justify-between">

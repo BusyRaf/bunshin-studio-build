@@ -3,6 +3,12 @@ export type PortfolioHighlight = {
   body: string;
 };
 
+export type PortfolioTestimonial = {
+  quote: string;
+  author: string;
+  href?: string;
+};
+
 export type PortfolioProject = {
   id: string;
   title: string;
@@ -16,6 +22,7 @@ export type PortfolioProject = {
   category?: string;
   status?: string;
   ctaLabel?: string;
+  testimonial?: PortfolioTestimonial;
 };
 
 export const portfolioIntro = {
@@ -102,62 +109,53 @@ export const portfolioProjects: PortfolioProject[] = [
       "/portfolio/animal-control-platform/screenshots/05-kennel-board.png",
       "/portfolio/animal-control-platform/screenshots/06-field-intake.png",
     ],
-    tags: ["React", "PWA", "Node.js", "PostgreSQL", "Twilio", "Offline Sync"],
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "PWA", "Self-hosted", "Offline-first"],
     category: "Internal",
     status: "Available",
+    ctaLabel: "Read Case Study",
   },
   {
-    id: "shelfmate",
-    title: "ShelfMate",
+    id: "core-property-ventures",
+    title: "Core Property Ventures",
     summary:
-      "Goodreads works as a public broadcast network — follower counts, public shelves, review feeds. ShelfMate is built around the opposite model: a tight friend graph where reading activity, recommendations, and annotations stay within your circle. Private by design, not by settings. Dual-source book lookup via Open Library API with Google Books fallback, AI-assisted suggestions, and shareable reading cards for iOS and Android.",
+      "Core Property Ventures is a Jacksonville-based residential real estate investment company that buys houses as-is, in cash, on the seller's timeline. The client needed a professional web presence to replace an existing Squarespace site — something built for the QR code on her marketing materials and designed to convert a homeowner who scans it into a conversation. We designed and built a mobile-first landing page, migrated hosting to Vercel, set up a custom email domain, wrote the privacy policy, and generated the QR code pointed at the deployed URL.",
     highlights: [
       {
-        heading: "Friend-Graph Social Model",
-        body: "Recommendations and reading activity visible only within your friend network — no public feed, no follower counts.",
+        heading: "Landing Page Design & Build",
+        body: "Single-page mobile-first site with a hero, owner portrait, three-step process section, and inline contact form — built around the Core Property Ventures brand system.",
       },
       {
-        heading: "AI Reading Suggestions",
-        body: "On-device suggestion engine uses reading history and ratings to surface books the user is likely to finish.",
+        heading: "Squarespace → Vercel Migration",
+        body: "Migrated hosting from Squarespace to Vercel. Faster load times, cleaner deployment pipeline, no platform subscription tied to the site.",
       },
       {
-        heading: "Dual-Source Book Lookup",
-        body: "Open Library API with Google Books fallback — broad catalog coverage with graceful degradation.",
+        heading: "Contact Form",
+        body: "Inline lead capture form with name, contact, property address, and timeline — the primary conversion action on the page.",
       },
       {
-        heading: "Private Annotations",
-        body: "Notes and highlights stay within the user's circle — never surfaced to a public feed.",
+        heading: "Custom Email & Mail Server",
+        body: "Set up a custom email address under the corepropertyventures.com domain with a professionally configured mail server so outbound and inbound correspondence routes under her brand.",
+      },
+      {
+        heading: "Privacy Policy",
+        body: "Drafted and published a privacy policy appropriate for the site's data collection scope.",
+      },
+      {
+        heading: "QR Code for Print Materials",
+        body: "Generated a QR code pointed at the deployed URL for inclusion on postcards and physical marketing materials.",
       },
     ],
-    url: "",
-    imageSrc: "/portfolio/shelfmate.png",
-    tags: ["Flutter", "Supabase", "Open Library API", "Google Books API", "iOS", "Android"],
-    category: "Labs",
-    status: "Pre-Development",
-  },
-  {
-    id: "daily-tao",
-    title: "Daily Tao",
-    summary:
-      "A daily Tao Te Ching verse app with scheduled push notifications — one verse per day, one daily reminder, no feed, no social layer. One feature, done correctly.",
-    highlights: [
-      {
-        heading: "One Feature, Done Right",
-        body: "Single daily verse with a scheduled push notification — no feed, no social layer, no unnecessary complexity.",
-      },
-      {
-        heading: "iOS & Android",
-        body: "Native push notifications via APNs and FCM; scheduled delivery respects the user's local timezone.",
-      },
-      {
-        heading: "Purposeful Simplicity",
-        body: "Not every product needs to be complex. This one does exactly what it says and nothing else.",
-      },
-    ],
-    url: "",
-    imageSrc: "/portfolio/daily-tao.png",
-    tags: ["Flutter", "APNs", "FCM", "iOS", "Android"],
-    category: "Labs",
-    status: "In Development",
+    url: "https://corepropertyventures.com/",
+    imageSrc: "/portfolio/core-property-ventures/logo.png",
+    imagePosition: "center center",
+    tags: ["Landing Page", "Vercel", "Custom Domain", "Email Setup", "Squarespace Migration"],
+    category: "Client",
+    status: "Delivered",
+    testimonial: {
+      quote:
+        "Rafael and his team at Bunshin Development Studios did an excellent job creating a new website for my business in a very short amount of time. The entire process was smooth and easy, with clear communication every step of the way and real, professional results. I highly recommend reaching out to them for any of your business website and development needs!",
+      author: "Holly McNally — Core Property Ventures",
+      href: "https://share.google/2JKiabv9neB4VqipN",
+    },
   },
 ];

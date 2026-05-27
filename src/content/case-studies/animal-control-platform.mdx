@@ -1,0 +1,63 @@
+<Section>
+
+## The product
+
+The Animal Control & Shelter Management Platform is a municipal software system for field operations, facility management, and public-facing services. It covers the full lifecycle of an animal in government custody — from a citizen's online stray report through field capture, facility intake, veterinary care, and counter release. Four surfaces serve nine distinct roles: a progressive web app for officers in trucks, a wall-mounted tablet interface for kennel staff, an admin console for dispatchers, veterinarians, counselors, managers, and records staff, and a public portal for citizens. One codebase. One database.
+
+The platform integrates with Twilio for SMS notifications, SendGrid for transactional email, Workday Teller for cashiering at the counter, Florida DOH for electronic bite report submission, and a court document pipeline for cruelty and dangerous-dog proceedings. All four major microchip registries — 24PetWatch, HomeAgain, AKC Reunite, and Save This Life — are integrated for field lookup. Every external vendor is feature-flag-gated: swapping or disabling any integration is a configuration change, not a code change. The platform runs on county-managed infrastructure under a county OIDC identity provider, with the same behavior in production whether any individual vendor is active or not.
+
+We wanted the platform to do two things simultaneously that don't naturally coexist: give field officers a tool fast enough for one-handed operation in a rural county with no signal, and produce records that hold up in court. Offline-first field tooling optimizes for speed and local resilience. Court-admissible audit records require guarantees the database layer has to make, not the application layer. Both had to be true from the first intake.
+
+</Section>
+
+<Section>
+
+<ScreenshotGallery screenshots={[
+  { src: "/portfolio/animal-control-platform/screenshots/06-field-intake.png", alt: "Field intake form on truck tablet showing photo capture and microchip scan result", caption: "Field intake — 90 seconds, one-handed" },
+  { src: "/portfolio/animal-control-platform/screenshots/03-dispatch-console.png", alt: "Dispatch console showing live officer positions on map alongside incoming call queue", caption: "Dispatch console with live officer map" },
+  { src: "/portfolio/animal-control-platform/screenshots/05-kennel-board.png", alt: "Kennel board showing all facility kennels color-coded by hold status with animal photos", caption: "Kennel board — facility wall tablet" }
+]} />
+
+</Section>
+
+<Section>
+
+## Where it gets hard
+
+Three decisions shaped this build and propagated into everything built above them.
+
+**Parallel microchip registry lookup.** We wanted the owner notified via Twilio SMS before the officer left the scene. A field intake runs in under 90 seconds — sequential calls across four microchip registries can't fit in that window. So we query all four simultaneously. The first match populates the owner record and fires the SMS automatically. By the time the officer taps submit, the owner is already on their way. That outcome required genuine parallel async execution across independent vendor APIs, not a sequential fallback chain with a timeout.
+
+**Tamper-evident audit chain.** We wanted case records that could survive a court challenge without relying on application-layer promises. Every write to a business table fires a Postgres trigger that inserts a hash-linked row into the audit log — each entry carries a SHA-256 hash of its own content chained to the previous row's hash. The database role the application runs under has had UPDATE and DELETE revoked on that table. There is no code path that alters a record after the fact. When the chain is intact, court packets and Florida DOH bite reports generate automatically from system data. When it's broken, they don't. The guarantee is structural, not procedural.
+
+**Hold state enforced at the server.** We wanted a bite-quarantine animal to be unreleasable from any surface in the system — the kennel board, the field app, the counselor's counter screen — without depending on each surface having its own check. Client-side validation can be bypassed. Every release action in the platform routes through a single server-side guard that validates the hold state machine before any status change is committed. The "DO NOT RELEASE" indicator is rendered from server state, not local UI logic. There is no path around it.
+
+</Section>
+
+<Section>
+
+## How we delivered it
+
+The platform shipped in themed phases, each stable before the next began. Core data and trust infrastructure came first — the animal record, the hold engine, the audit chain, and role-based access control. Field operations built directly on that foundation: dispatch, mobile intake, offline sync. Facility and clinical workflows followed. Customer-facing surfaces — redemption, adoption, the public portal — came last, along with the Workday Teller cashiering integration and the Florida DOH and court document pipelines.
+
+The real-time layer was wired after the data model was settled. Events carry only entity IDs; surfaces re-fetch the detail they need. When real-time landed, nothing that already existed had to change. The kennel board updating before the truck arrives is a consequence of that sequencing — by the time SSE was added, the data was already correct everywhere, and real-time was additive rather than disruptive.
+
+</Section>
+
+<Section>
+
+## What this demonstrates
+
+The problems in this build — parallel async integration across multiple vendor APIs under a hard operational timing requirement, tamper-evident records enforced at the database layer, state machine invariants that hold across a multi-surface system — are not specific to animal services. They appear in field service platforms, compliance systems, regulated clinical software, and anything that coordinates across roles, integrates with external vendors, and produces records that have to hold up later.
+
+Different domain. Same engineering.
+
+</Section>
+
+<Section>
+
+**Stack:** Next.js 16 · TypeScript · PostgreSQL 17 · Drizzle · Redis · MinIO · Better Auth · CASL · BullMQ · dnd-kit · Caddy · Self-hosted
+
+**Integrations:** Twilio · SendGrid · Workday Teller · Florida DOH · Court system · 24PetWatch · HomeAgain · AKC Reunite · Save This Life · County OIDC
+
+</Section>
