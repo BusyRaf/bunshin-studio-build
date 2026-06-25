@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/seo";
 
 export function generateStaticParams() {
   // Exclude projects that have a dedicated static route (e.g. fishing-with-friends/page.tsx)
-  const staticRouteIds = new Set(["fishing-with-friends", "animal-control-platform"])
+  const staticRouteIds = new Set(["fishing-with-friends", "animal-control-platform", "streamhalla"])
   return portfolioProjects
     .filter((project) => !staticRouteIds.has(project.id))
     .map((project) => ({ projectId: project.id }))
