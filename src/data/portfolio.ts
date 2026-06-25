@@ -34,6 +34,46 @@ export const portfolioIntro = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: "streamhalla",
+    title: "StreamHalla",
+    summary:
+      "StreamHalla is AI-powered VOD analytics for Twitch, YouTube, and Kick streamers. Twitch Analytics and YouTube Studio show view counts; they don't tell a streamer why the room went quiet or what's changing across streams. StreamHalla does. Paste a VOD link and get back a six-axis coaching scorecard, a sentiment timeline, and a five-point next-stream action plan. The first analysis is free, and Streamer Trends surfaces the one growth lever moving every other score across a streamer's whole history.",
+    highlights: [
+      {
+        heading: "Coaching Scorecard",
+        body: "Every report grades the stream on six axes — engagement, chat positivity, peak moments, consistency, retention, and community vibe — benchmarked against streamers at the same tier.",
+      },
+      {
+        heading: "Chat Sentiment Timeline",
+        body: "Maps the emotional arc of the whole stream and names the peaks and dips, so a streamer can rewatch the moments that mattered instead of scrubbing through hours of VOD.",
+      },
+      {
+        heading: "Streamer Trends",
+        body: "Looks across a streamer's full report history to find the one variable quietly moving all their other scores — a pattern no single VOD or platform dashboard can show.",
+      },
+      {
+        heading: "Multi-Platform",
+        body: "One read on performance across Twitch, YouTube, and Kick — wherever a streamer goes live. No video is downloaded.",
+      },
+      {
+        heading: "Free First Report",
+        body: "The first coaching report is free with no account needed to start — the honest read that gets a small streamer in the door.",
+      },
+    ],
+    url: "https://streamhalla.com",
+    imageSrc: "/portfolio/streamhalla/card.png",
+    imagePosition: "center center",
+    images: [
+      "/portfolio/streamhalla/screenshots/feature-coaching-scorecard.png",
+      "/portfolio/streamhalla/screenshots/feature-chat-sentiment.png",
+      "/portfolio/streamhalla/screenshots/feature-streamer-trends.png",
+    ],
+    tags: ["React", "Node.js", "PostgreSQL", "Fly.io", "Docker", "LLM Pipeline"],
+    category: "Internal",
+    status: "Live",
+    ctaLabel: "Read Case Study",
+  },
+  {
     id: "fishing-with-friends",
     title: "Fishing with Friends",
     summary:

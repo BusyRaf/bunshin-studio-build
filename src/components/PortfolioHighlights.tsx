@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { portfolioProjects } from "@/data/portfolio";
 
-const featuredIds = ["animal-control-platform", "fishing-with-friends"];
+const featuredIds = ["streamhalla", "animal-control-platform", "fishing-with-friends"];
 
 const shortDescriptions: Record<string, string> = {
+  streamhalla:
+    "AI-powered VOD analytics for Twitch, YouTube, and Kick streamers — a sentiment timeline, a six-axis coaching scorecard, and a five-point next-stream action plan from one VOD link.",
   "animal-control-platform":
     "90-second digital field intake, one-handed, with simultaneous lookup across four microchip registries and automatic owner notification before the officer leaves the scene.",
   "fishing-with-friends":
@@ -32,7 +34,7 @@ const PortfolioHighlights = () => {
           What We Built. What It Replaced.
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
           {featured.map((project) => (
             <Link
               key={project.id}
