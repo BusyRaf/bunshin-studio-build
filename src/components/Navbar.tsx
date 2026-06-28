@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const pageLinks = [
-  { label: "Services", href: "/services" },
+  { label: "What We Build", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
 ];
@@ -34,7 +34,7 @@ const Navbar = () => {
           ))}
           <li>
             <Link href="/contact" className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md hover:bg-accent-purple hover:cyan-glow transition-all duration-300">
-              Get in Touch
+              Start a build
             </Link>
           </li>
         </ul>
@@ -54,7 +54,7 @@ const Navbar = () => {
             ))}
             <li>
               <Link href="/contact" className="font-mono text-sm bg-primary text-primary-foreground px-5 py-2 rounded-md w-full hover:bg-accent-purple block text-center" onClick={() => setOpen(false)}>
-                Get in Touch
+                Start a build
               </Link>
             </li>
           </ul>

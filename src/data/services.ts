@@ -1,117 +1,58 @@
-export type PricingTier = {
-  engagement: string;
-  scope: string;
-  range: string;
-};
-
 export type ServiceLine = {
   id: string;
+  eyebrow: string;
   title: string;
   intro: string;
-  capabilities: string[];
-  pricing: PricingTier[];
+  body: string[];
+  examples?: string[];
+  proof: string;
+  cta: string;
 };
 
 export const servicesIntro = {
-  eyebrow: "Services",
-  title: "Senior-Led Engineering. No Hand-Offs.",
+  eyebrow: "What we build",
+  title: "Two ways we build with you.",
   description:
-    "Every engagement is led by the principals who scoped it. The people you meet on day one are the people who build it. Serving Jacksonville, St. Johns County, and Northeast Florida.",
+    "Whether you're starting from an idea or you already run a business, you own the vision and we build it. No pricing tables, no catalog, just the work and a warm front door.",
 };
 
 export const serviceLines: ServiceLine[] = [
   {
-    id: "custom-web-applications",
-    title: "Custom B2B Web Application Development",
+    id: "greenfield",
+    eyebrow: "From an idea",
+    title: "Turn your idea into a real app.",
     intro:
-      "We build web applications around your specific business logic — not around what an off-the-shelf platform almost does. Portals, dashboards, SaaS products, and regulated workflows, engineered for the environment they will actually live in.",
-    capabilities: [
-      "Customer and client self-service portals",
-      "Operational dashboards with real-time data feeds",
-      "API-first integrations (CRM, ERP, billing platforms)",
-      "HIPAA and GDPR compliant architecture, built in — not retrofitted",
-      "SaaS multi-tenant applications",
-      "Secure document workflows and digital approval flows",
+      "Greenfield web and mobile builds for people with a conviction and no technical co-founder. From the sketch in your head to a product people actually use, with you as the owner the whole way.",
+    body: [
+      "You don't need a technical co-founder or a finished spec to start. You need the thing to exist. We've built from nothing but conviction before, our own products began exactly that way, and we know how to carry an idea all the way to launch.",
+      "What we build: net-new web apps, iOS and Android apps, the backend and cloud infrastructure underneath, and the launch itself. It ships as deterministic, dependable software, so what you own is the real thing, not a prototype held together with hope.",
+      "It's your vision and your call, from the first sketch to launch day. We bring it to life; you decide where it goes.",
     ],
-    pricing: [
-      {
-        engagement: "Paid Discovery",
-        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
-        range: "$500 (credited to project)",
-      },
-      {
-        engagement: "Fixed-Price Build",
-        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
-        range: "Scoped and priced through Discovery",
-      },
-      {
-        engagement: "Monthly Retainer",
-        scope: "Ongoing development and support with direct principal access — no ticket queue",
-        range: "$1,500–$3,000/mo (3-month minimum)",
-      },
-    ],
+    proof:
+      "StreamHalla started as an idea about streamer communities. It's live today. The closet behind us is full of products that began the same way.",
+    cta: "Tell us what you're building. We'll figure out the rest together.",
   },
   {
-    id: "mobile-development",
-    title: "Native & Cross-Platform Mobile Development",
+    id: "for-your-business",
+    eyebrow: "For your business",
+    title: "Your business deserves a custom app.",
     intro:
-      "We build iOS and Android applications that hold up in the field — offline-first where the network is unreliable, backed by cloud infrastructure we also own and operate. From App Store submission to backend API, one team handles the full stack.",
-    capabilities: [
-      "iOS and Android applications (React Native / Flutter)",
-      "Offline-first architecture for field, logistics, and maritime environments",
-      "App Store and Google Play deployment",
-      "Backend API and cloud infrastructure included",
-      "Real-time data sync and push notifications",
-      "GPS, camera, and device sensor integrations",
+      "You built something real. We build the custom web or mobile app to match: a booking app, an online store, a customer portal, whatever your business actually needs. You stay the owner of the vision; we make it real.",
+    body: [
+      "You don't need to bend your business to fit an off-the-shelf platform that almost works. We build around how your business actually runs, and because we come from healthcare, finance, and nuclear-grade environments, your customers' data is handled like it matters.",
     ],
-    pricing: [
-      {
-        engagement: "Paid Discovery",
-        scope: "Written scope, technical proposal, and fixed price — yours to keep regardless of next steps",
-        range: "$500 (credited to project)",
-      },
-      {
-        engagement: "Fixed-Price Build",
-        scope: "Approved scope before first commit. No change orders for scope we missed. Delivered in iterations.",
-        range: "Scoped and priced through Discovery",
-      },
-      {
-        engagement: "Monthly Retainer",
-        scope: "Ongoing development and support with direct principal access — no ticket queue",
-        range: "$1,500–$2,500/mo",
-      },
+    examples: [
+      "a barber or salon that wants a custom booking app",
+      "a storefront that wants a real ecommerce store, not a rented template",
+      "a restaurant that wants its own online ordering and a loyalty app",
+      "a gym or studio that wants class scheduling and memberships in one place",
+      "a contractor or home-services crew that wants quoting and job scheduling on their phones",
+      "a dental or medical practice that wants a HIPAA-compliant patient portal",
+      "a property manager that wants a tenant portal that actually works",
+      "a field or logistics team that wants an offline-first app for where the signal drops",
     ],
-  },
-  {
-    id: "legacy-modernization",
-    title: "Legacy Modernization & Cloud Operations",
-    intro:
-      "We migrate aging systems to modern infrastructure without stopping your business. .NET Framework to .NET 8, monolith to microservices, on-premise to Azure or AWS — with HIPAA and CMMC compliance built into every phase. The entry point is a Technical Audit: a 2-week assessment with a written modernization roadmap you own regardless of what happens next.",
-    capabilities: [
-      ".NET Framework to .NET 8 migration",
-      "Monolith decomposition into microservices",
-      "On-premise to Azure and AWS cloud migration",
-      "Security hardening and compliance remediation (HIPAA, CMMC)",
-      "CI/CD pipeline and DevOps automation",
-      "Technical Audit: 2-week assessment with written roadmap — the recommended entry point",
-    ],
-    pricing: [
-      {
-        engagement: "Technical Audit",
-        scope: "2-week assessment + written modernization roadmap — yours to keep regardless of next steps",
-        range: "$1,500 (standalone deliverable)",
-      },
-      {
-        engagement: "Migration Project",
-        scope: "Approved scope before first commit. No change orders for scope we missed. Phased delivery.",
-        range: "Scoped and priced through Technical Audit",
-      },
-      {
-        engagement: "Managed Cloud Ops",
-        scope: "Ongoing infrastructure management with direct principal access — SLA-backed",
-        range: "$2,000–$5,000/mo",
-      },
-    ],
+    proof:
+      "Core Property Ventures came to us as an established business and left with its digital counterpart. We can do the same for yours.",
+    cta: "Tell us about your business and what you want to build. We'll figure out the rest together.",
   },
 ];
-

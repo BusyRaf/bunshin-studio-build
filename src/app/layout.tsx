@@ -42,7 +42,6 @@ const orgSchema = [
     logo: `${siteConfig.url}/ghost.svg`,
     image: `${siteConfig.url}/og-image.png`,
     description: siteConfig.description,
-    priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: "St. Augustine",
@@ -56,6 +55,7 @@ const orgSchema = [
       { "@type": "AdministrativeArea", "name": "St. Johns County" },
       { "@type": "AdministrativeArea", "name": "Clay County" },
       { "@type": "AdministrativeArea", "name": "Flagler County" },
+      { "@type": "Country", "name": "United States" },
     ],
   },
   {

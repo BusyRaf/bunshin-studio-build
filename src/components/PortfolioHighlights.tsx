@@ -5,11 +5,11 @@ const featuredIds = ["streamhalla", "animal-control-platform", "fishing-with-fri
 
 const shortDescriptions: Record<string, string> = {
   streamhalla:
-    "AI-powered VOD analytics for Twitch, YouTube, and Kick streamers — a sentiment timeline, a six-axis coaching scorecard, and a five-point next-stream action plan from one VOD link.",
+    "AI-powered VOD analytics for Twitch, YouTube, and Kick streamers: a sentiment timeline, a six-axis coaching scorecard, and a five-point next-stream action plan from a single VOD link.",
   "animal-control-platform":
     "90-second digital field intake, one-handed, with simultaneous lookup across four microchip registries and automatic owner notification before the officer leaves the scene.",
   "fishing-with-friends":
-    "Offline-first iOS and Android app for GPS-tagged catch logging, friend-scoped activity, and live competitive tournaments — built for low-signal maritime environments.",
+    "Offline-first iOS and Android app for GPS-tagged catch logging, friend-scoped activity, and live tournaments, built for low-signal maritime environments.",
 };
 
 const statusStyles: Record<string, string> = {
@@ -28,10 +28,10 @@ const PortfolioHighlights = () => {
     <section className="py-24 md:py-32 border-t border-accent-purple/20">
       <div className="container mx-auto px-6">
         <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase text-center mb-4">
-          Selected Work
+          Our work
         </p>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          What We Built. What It Replaced.
+          Products we&apos;ve built.
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">

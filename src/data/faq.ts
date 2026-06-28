@@ -6,45 +6,57 @@ export type FaqItem = {
 
 export const faqItems: FaqItem[] = [
   {
-    id: "item-1",
-    question: "What does 'Bunshin' mean?",
+    id: "what-is-bunshin",
+    question: "What does “Bunshin” mean?",
     answer:
-      "Bunshin (分身) is a Japanese word meaning shadow clone — the ability to multiply yourself, to operate as more than one. The firm is built around that idea. When you bring us in, you are not hiring contractors to execute a spec you manage. You are adding senior engineering capacity to your operation — capacity that thinks, scopes, builds, and owns the outcome alongside you, without the overhead of full-time hires, a management layer, or an account manager in between. The principal who walks in on day one is the one who ships the work.",
+      "It's Japanese for shadow clone: the trick of multiplying yourself to be in more than one place at once. We're two builders who multiply what two people can do, so a small team ships like a much bigger one, and you always get the actual builders, never an account manager in between.",
   },
   {
-    id: "item-2",
-    question: "Do you use AI in your development process?",
+    id: "idea-no-cofounder",
+    question: "Can you build an app from just an idea? I don't have a technical co-founder.",
     answer:
-      "Yes — throughout. AI accelerates how we research, draft, reason through architecture, and generate code. But the deliverable is always hard-coded, deterministic software. Not an AI layer embedded in your production stack. No token burn on your infrastructure. No new cost center. No hallucinations inside a compliance-critical system. The output is code that does exactly what it is supposed to do, every time, because it is code — not a model inference call. For our clients in healthcare, defense, and regulated environments, that distinction matters.",
+      "Absolutely, that's our favorite way to start. You don't need a co-founder, a spec, or a single line of code, just the idea and the conviction to build it. Our own products began exactly that way, and we'll take yours from a sketch in your head to a launched web or mobile app.",
   },
   {
-    id: "item-3",
-    question: "How do you manage scope, timeline, and budget on complex projects?",
+    id: "existing-business",
+    question: "Can you build a custom app for my existing business?",
     answer:
-      "Every engagement runs on a defined scope document, a Jira-tracked task list with owners and deadlines, and PMI Earned Value reporting so budget burn is visible at all times. We use CSM-certified sprint methodology for delivery cadence and Confluence for requirements traceability. Nothing falls through the cracks because everything has an owner.",
+      "Yes, and you won't have to bend your business to fit a template that almost works. A booking app, an online store, a customer portal, a mobile app for your team, we build around how your business actually runs. You built something real; we give it the app it deserves.",
   },
   {
-    id: "item-4",
-    question: "How does Bunshin actually run an engagement?",
+    id: "cost",
+    question: "How much does it cost to build a custom app?",
     answer:
-      "Every engagement starts with a written scope document and a fixed price — you approve both before development begins. The principals who scope your work are the ones who build it. You have direct access to the engineers throughout. The people running this firm spent nearly 30 years delivering in nuclear energy, national telecommunications, healthcare, and military environments — and that standard applies to every project we take on.",
+      "It depends on what you're building, so we don't post a one-size number that would be wrong for you. The honest version: after a short conversation about your vision, we come back with a clear, fixed price for the actual thing you want, and it costs nothing to find out. No hourly meters, no surprise change orders.",
   },
   {
-    id: "item-5",
-    question: "How do you handle compliance and data security requirements?",
+    id: "timeline",
+    question: "How long does it take to build an app?",
     answer:
-      "Built in from the start, not added afterward. We have hands-on experience with HIPAA, GDPR, and security requirements across some of the most sensitive environments in the world. Compliance isn't a checklist for us — it's a baseline.",
+      "Usually weeks, not years, because two senior builders are on it with no hand-offs slowing things down. An MVP is faster than a full platform, so we'll give you a real timeline along with your fixed price, before anything starts.",
   },
   {
-    id: "item-6",
-    question: "How do you work alongside existing internal teams?",
+    id: "ownership",
+    question: "Do I own the app and the code you build?",
     answer:
-      "We start by meeting with your team to understand internal boundaries, define roles, gather documentation, and elicit requirements. We integrate without disrupting — your team stays focused on what they do best while we handle what you need us to.",
+      "Completely. Your product, your vision, your code, your call, start to finish. You're the owner the whole way; we're the build. Nothing locks you to us.",
   },
   {
-    id: "item-7",
-    question: "What industries have you worked in?",
+    id: "two-person",
+    question: "Can a two-person studio really build my product?",
     answer:
-      "Healthcare, nuclear energy, maritime security, cryptocurrency, and military applications. We're comfortable operating in high-stakes, highly regulated environments — and we bring that same discipline to every engagement regardless of industry.",
+      "Yes, and it's an advantage. You get Rafael and Jose directly, the same two who scope your build and ship it, with no juniors training on your dime and no one to translate through. We move fast because we spent years building where slow or sloppy wasn't an option, and we lean on AI to multiply our hands.",
+  },
+  {
+    id: "ai",
+    question: "Do you build with AI, and will my product depend on it?",
+    answer:
+      "We use AI constantly to build faster, but your product doesn't run on it. What you own is ordinary, deterministic software: no AI baked into your stack, no per-token costs, nothing to hallucinate in production. AI is how we work; dependable code is what you keep.",
+  },
+  {
+    id: "location",
+    question: "Where are you located, and do you work remotely?",
+    answer:
+      "We're in the Jacksonville and St. Augustine area of Florida, and we're remote-native, so we build for people anywhere. Local or across the country, you get the same thing: direct access to the two builders making your product.",
   },
 ];

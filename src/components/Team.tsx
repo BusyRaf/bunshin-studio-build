@@ -2,18 +2,18 @@ import { Code2, BarChart3 } from "lucide-react";
 
 const members = [
   {
-    name: "Jose",
-    role: "Senior Full-Stack Engineer",
-    icon: Code2,
-    description:
-      "Architect of scalable systems with deep enterprise experience. Jose brings expertise in cloud-native architectures, modern frontend frameworks, and robust backend services — turning complex requirements into elegant, maintainable solutions.",
-  },
-  {
-    name: "Rafael",
-    role: "Operations & Project Management",
+    name: "Rafael Bejaran",
+    role: "Operations & Strategy",
     icon: BarChart3,
     description:
-      "With a background in electronics engineering and years leading global technical teams, Rafael ensures every project runs on-time, on-budget, and on-spec. He bridges the gap between stakeholders and engineers with precision.",
+      "The vehicle. Personally accountable for every build, and the same person who scopes it. A Navy operator's discipline (safety-of-flight radar across three fleets) plus a Web3 founder's instinct for how a product finds its people.",
+  },
+  {
+    name: "Jose Diaz",
+    role: "Technology & Architecture",
+    icon: Code2,
+    description:
+      "The spark. He can't propose a solution without building it first. Nearly fifteen years in software's least forgiving rooms (AT&T, Susquehanna nuclear, HIPAA healthcare) is exactly why what he ships holds up.",
   },
 ];
 
@@ -24,9 +24,16 @@ const Team = () => {
         <p className="font-mono text-sm text-primary tracking-[0.3em] uppercase text-center mb-4">
           The Team
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Meet the Shadows
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+          Meet the builders
         </h2>
+        <p className="text-muted-foreground font-sans leading-relaxed text-center max-w-2xl mx-auto mb-16">
+          Two of us, Rafael and Jose. Childhood friends who took different paths and found
+          their way back to the same workbench. Jose is the spark, the inventor whose ideas
+          become our products. Rafael is the vehicle, the one who makes them real and finds
+          the people who&apos;ll love them. Each is the other&apos;s way to the thing he wants
+          most: Jose&apos;s freedom, Rafael&apos;s dream.
+        </p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {members.map((member) => (

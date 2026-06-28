@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const trustItems = [
-  "Veteran-Owned",
-  "PMP & CSM Certified",
-  "HIPAA & GDPR Built In",
-  "Azure & AWS",
+  "Veteran-owned",
+  "Remote-native",
+  "Web & mobile apps",
+  "StreamHalla is live",
 ] as const;
 
 const Hero = () => {
@@ -27,7 +27,7 @@ const Hero = () => {
               <img src="/ghost.svg" alt="Bunshin ghost" className="h-5 w-5" />
             </span>
             <p className="font-mono text-sm tracking-[0.3em] uppercase text-gradient-cyan">
-              Software That Multiplies Your Capacity
+              Engineering magic
             </p>
           </div>
           <div className="mx-auto mt-[calc((0.9rem-2px)/2)] mb-[calc((0.9rem-2px)/2)] h-[2px] w-8 rounded-full bg-primary" aria-hidden />
@@ -36,24 +36,24 @@ const Hero = () => {
           className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Built to the Standard of{" "}
-          <span className="text-gradient-cyan">the Environments We Came From.</span>
+          Make the imagined{" "}
+          <span className="text-gradient-cyan">real.</span>
         </h1>
         <p
           className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up font-sans"
           style={{ animationDelay: "0.2s" }}
         >
-          Nearly 30 years of delivery across nuclear energy, national telecommunications, healthcare, and military operations — now pointed at your problem. Fixed scope, fixed price, direct access. The principals who scope it build it.
+          Bunshin is a veteran-owned product studio. We build and launch our own software, and we love teaming up with other builders to bring their web and mobile apps to life. You own the vision; we&apos;re the build.
         </p>
         <div
           className="flex flex-col items-center animate-fade-in-up gap-8"
           style={{ animationDelay: "0.3s" }}
         >
           <Link
-            href="/contact"
+            href="/portfolio"
             className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold w-full sm:w-auto"
           >
-            Schedule a Discovery Call
+            See what we&apos;ve built
           </Link>
           <div className="w-full max-w-3xl border-t border-border pt-8">
             <p className="font-mono text-xs md:text-sm text-muted-foreground tracking-wide leading-relaxed">
