@@ -3,27 +3,27 @@ import { Compass, PenLine, Hammer, Rocket } from "lucide-react";
 const steps = [
   {
     icon: Compass,
-    title: "1. Discovery",
+    title: "1. Tell us what you're building",
     description:
-      "Every engagement begins with a structured Paid Discovery ($500, credited to your project). You arrive with a problem. You leave with a written scope document, a technical proposal, and a fixed price — yours to keep regardless of what you decide next. No commitment required to find out exactly what the work involves.",
+      "It starts with a conversation, not paperwork. You tell us what you're making, why it has to exist, and what launched looks like. We tell you honestly whether we're the right team to build it. No pressure, no sales call.",
   },
   {
     icon: PenLine,
-    title: "2. Scope & Design",
+    title: "2. We scope it together",
     description:
-      "The scope document defines requirements, architecture decisions, and acceptance criteria. You review and approve it before development begins. That approval is the gate — nothing goes into the codebase until both sides have signed off on what done means and what it costs.",
+      "We map out what the product needs to be: the features, the shape, what done means. You approve the plan before anything gets built. You own the vision the whole way; we make sure the plan matches it.",
   },
   {
     icon: Hammer,
-    title: "3. Build",
+    title: "3. We build it",
     description:
-      "Development runs in CSM-certified sprints. You have access to the staged environment and the Jira board throughout — not a status call once a month. Working software ships at every sprint boundary. Budget burn is tracked against the fixed price in real time. We use AI throughout the build process; the deliverable is always deterministic, hard-coded software with no runtime AI dependency in your stack.",
+      "Two senior builders, no hand-offs, working software at every step. We use AI to move fast, but what you own is deterministic, hard-coded software with no AI dependency in your stack. You watch it come together, not a status call once a month.",
   },
   {
     icon: Rocket,
-    title: "4. Launch & Ongoing",
+    title: "4. We launch it",
     description:
-      "We stay engaged after go-live. For clients who need continued development or support, monthly retainers run $1,500–$3,000 with a three-month minimum and direct principal access throughout — no ticket queue, no account manager, the same people who built it.",
+      "We take it all the way to live, on the web or in the app store, in front of real people. You own the product and the code. Where it goes next is your call.",
   },
 ];
 
@@ -31,7 +31,7 @@ const ValuePropositions = () => {
   return (
     <section id="how-we-work" className="py-24 md:py-32 border-t border-accent-purple/20">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">A Project With Bunshin</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">How a build works</h2>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {steps.map((step) => (

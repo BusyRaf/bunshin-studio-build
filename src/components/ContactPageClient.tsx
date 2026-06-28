@@ -11,18 +11,18 @@ import { contactContent } from "@/data/contact";
 const expectSteps = [
   {
     step: "01",
-    heading: "We read it the same day.",
-    body: "Every submission goes directly to a principal — not a CRM queue, not a support inbox.",
+    heading: "We read it ourselves, fast.",
+    body: "Every message goes straight to Rafael and Jose, not a CRM queue or a support inbox.",
   },
   {
     step: "02",
-    heading: "We schedule a 30-minute intro call.",
-    body: "No sales deck. We listen to the problem and tell you honestly whether we're the right fit.",
+    heading: "We have a real conversation.",
+    body: "No sales deck, no pressure. We listen to what you're building and tell you honestly whether we're the right team for it.",
   },
   {
     step: "03",
-    heading: "We come back with a proposal.",
-    body: "Either a Paid Discovery ($500, credited to the project) or a Technical Audit ($1,500) — whatever matches your situation.",
+    heading: "We come back with a plan and a price.",
+    body: "If it's a fit, you get a clear scope and a fixed price for the actual thing you want. You own the vision the whole way.",
   },
 ];
 
@@ -67,9 +67,9 @@ export default function ContactPageClient() {
 
           {/* Trust signal row */}
           <p className="font-mono text-xs text-muted-foreground text-center mb-10 tracking-wide">
-            <span>Veteran-Led</span>
+            <span>Veteran-owned</span>
             <span className="mx-2 text-primary/60">·</span>
-            <span>Response Within One Business Day</span>
+            <span>You reach the builders directly</span>
           </p>
 
           {/* What to expect */}
@@ -94,10 +94,10 @@ export default function ContactPageClient() {
             <Input id="contact-name" name="name" required placeholder="Your name" disabled={fieldDisabled} autoComplete="name" />
             <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-email">Email <span className="text-destructive">*</span></label>
             <Input id="contact-email" name="email" type="email" required placeholder="you@company.com" disabled={fieldDisabled} autoComplete="email" aria-required="true" />
-            <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-business">Business</label>
-            <Input id="contact-business" name="business" required placeholder="Company or organization" disabled={fieldDisabled} autoComplete="organization" />
-            <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-general-description">General description</label>
-            <Textarea id="contact-general-description" name="message" required rows={5} placeholder="High-level overview of what you need - goals, context, or constraints." disabled={fieldDisabled} className="resize-y min-h-[120px]" />
+            <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-business">Business or project</label>
+            <Input id="contact-business" name="business" placeholder="Your company, or just what you're calling your idea" disabled={fieldDisabled} autoComplete="organization" />
+            <label className="block text-sm font-mono mb-2 text-secondary-foreground" htmlFor="contact-general-description">What you&apos;re building</label>
+            <Textarea id="contact-general-description" name="message" required rows={5} placeholder="What are you building? Tell us what it is, why it has to exist, and where you are: an idea, or an existing business." disabled={fieldDisabled} className="resize-y min-h-[120px]" />
             <div className="flex flex-col items-center gap-3 pt-1 min-h-[3rem] justify-center">
               {status === "success" ? <p className="font-mono text-sm text-primary text-center animate-in fade-in-0 duration-300">{contactContent.successMessage}</p> : <Button type="submit" size="lg" className="font-mono w-full sm:w-auto cyan-glow" disabled={status === "submitting"}>{status === "submitting" ? contactContent.submittingLabel : contactContent.submitLabel}</Button>}
               {status === "error" && <p className="text-xs text-red-400 font-sans text-center">{contactContent.errorMessage}</p>}

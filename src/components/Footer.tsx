@@ -8,7 +8,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="font-mono text-xl font-bold tracking-widest text-primary mb-1">BUNSHIN</p>
-            <p className="font-mono text-xs text-muted-foreground">St. Augustine, FL · Serving Jacksonville & Northeast Florida</p>
+            <p className="font-sans text-sm text-muted-foreground italic mb-1">Engineering magic.</p>
+            <p className="font-mono text-xs text-muted-foreground">St. Augustine, FL · Remote-native, building for clients anywhere</p>
           </div>
           <p className="text-xs text-muted-foreground font-sans">
             © 2026 Bunshin Development Studios. All rights reserved.{" "}
