@@ -3,7 +3,7 @@ import type { MDXComponents } from 'mdx/types'
 // Custom Section component — glass card wrapper for each narrative section
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="glass rounded-xl p-8 md:p-10 border border-border mb-12">
+    <section className="mb-14">
       {children}
     </section>
   )
@@ -51,12 +51,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Element overrides — match the site's design system
     h2: ({ children }) => (
-      <h2 className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-6 mt-0">
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-5 mt-0">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-mono text-sm font-semibold text-foreground mb-3 mt-6">
+      <h3 className="font-display text-lg font-bold text-foreground mb-3 mt-8">
         {children}
       </h3>
     ),

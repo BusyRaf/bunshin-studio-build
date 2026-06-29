@@ -2,28 +2,19 @@ import Link from "next/link";
 
 const BottomCTA = () => {
   return (
-    <section className="py-24 md:py-32 border-t border-primary/20">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <div className="glass rounded-2xl p-8 md:p-10 border border-primary/20 relative overflow-hidden text-center">
-          <div className="absolute -left-32 -bottom-32 w-80 h-80 bg-primary/10 blur-3xl rounded-full pointer-events-none" />
-
-          <div className="relative z-10">
-            <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase mb-4">Let&apos;s build</p>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              I&apos;m already living my dream.{" "}
-              <span className="text-gradient-cyan">How can we help make yours come true?</span>
-            </h2>
-            <p className="text-muted-foreground font-sans leading-relaxed mb-8 max-w-xl mx-auto">
-              There&apos;s nothing we love more than meeting a builder energized by their own vision. Tell us what you&apos;re building, and we&apos;ll figure out the rest together.
-            </p>
-            <Link
-              href="/contact"
-              className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold inline-block"
-            >
-              Start a build
-            </Link>
-          </div>
-        </div>
+    <section className="py-32 md:py-40 border-t border-border text-center">
+      <div className="container mx-auto px-6">
+        <span className="block mx-auto mb-8 h-2.5 w-2.5 rounded-full bg-primary" aria-hidden />
+        <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.03] tracking-[-0.02em] max-w-[16ch] mx-auto mb-9 text-balance">
+          We&apos;re already living our dream.{" "}
+          <span className="text-primary">How can we help make yours come true?</span>
+        </h2>
+        <Link
+          href="/contact"
+          className="font-sans font-semibold text-base bg-[#6a37e0] text-white px-8 py-4 rounded-xl hover:bg-[#7b4bff] transition-colors"
+        >
+          Start a build
+        </Link>
       </div>
     </section>
   );

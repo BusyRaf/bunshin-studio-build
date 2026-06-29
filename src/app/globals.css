@@ -1,5 +1,5 @@
 /* Brand fonts — @import must precede @tailwind for PostCSS */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,35 +7,37 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 180 15% 92%;
-    --card: 222 47% 9%;
-    --card-foreground: 180 15% 92%;
-    --popover: 222 47% 9%;
-    --popover-foreground: 180 15% 92%;
-    --primary: 187 100% 42%;
-    --primary-foreground: 222 47% 6%;
-    --accent-purple: 252 95% 66%;
-    --secondary: 262 70% 32%;
-    --secondary-foreground: 210 40% 96%;
-    --muted: 222 20% 20%;
-    --muted-foreground: 220 15% 65%;
-    --accent: 252 95% 66%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 35% 22%;
-    --input: 222 35% 22%;
-    --ring: 187 100% 42%;
-    --radius: 0.75rem;
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 180 15% 92%;
-    --sidebar-primary: 187 100% 42%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 35% 18%;
-    --sidebar-accent-foreground: 180 15% 92%;
-    --sidebar-border: 222 35% 24%;
-    --sidebar-ring: 187 100% 42%;
+    /* Theme: Midnight Workshop — warm obsidian + electric-violet magic spark + ember */
+    --background: 261 24% 7%;
+    --foreground: 280 11% 92%;
+    --card: 260 22% 11%;
+    --card-foreground: 280 11% 92%;
+    --popover: 260 22% 11%;
+    --popover-foreground: 280 11% 92%;
+    --primary: 259 100% 71%;
+    --primary-foreground: 260 45% 9%;
+    --accent-purple: 259 100% 71%;
+    --secondary: 258 52% 30%;
+    --secondary-foreground: 280 20% 95%;
+    --muted: 258 14% 18%;
+    --muted-foreground: 256 13% 68%;
+    --accent: 259 100% 71%;
+    --accent-foreground: 260 45% 9%;
+    --ember: 31 100% 68%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 15% 20%;
+    --input: 258 15% 22%;
+    --ring: 259 100% 71%;
+    --radius: 0.85rem;
+    --sidebar-background: 261 24% 8%;
+    --sidebar-foreground: 280 11% 92%;
+    --sidebar-primary: 259 100% 71%;
+    --sidebar-primary-foreground: 260 45% 9%;
+    --sidebar-accent: 258 14% 16%;
+    --sidebar-accent-foreground: 280 11% 92%;
+    --sidebar-border: 258 15% 22%;
+    --sidebar-ring: 259 100% 71%;
   }
 }
 
@@ -50,7 +52,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-family: "Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   h1,
@@ -59,34 +61,42 @@
   h4,
   h5,
   h6 {
-    font-family: "Syne", system-ui, sans-serif;
-    letter-spacing: 0.03em;
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .font-mono-brand {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "Spline Sans Mono", monospace;
   }
 
+  /* Solid warm surface — glassmorphism retired; cards are real material now */
   .glass {
-    @apply bg-card/70 backdrop-blur-2xl border border-border shadow-[0_0_40px_rgba(0,0,0,0.45)];
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: inset 0 1px 0 hsl(var(--foreground) / 0.03), 0 12px 34px rgba(0, 0, 0, 0.35);
   }
 
+  /* Glow retired per design direction — kept as no-ops so any legacy usage stays flat */
   .cyan-glow {
-    box-shadow: 0 0 24px hsl(187 100% 42% / 0.5), 0 0 80px hsl(187 100% 42% / 0.25);
+    box-shadow: none;
   }
 
   .cyan-glow-sm {
-    box-shadow: 0 0 14px hsl(187 100% 42% / 0.45), 0 0 40px hsl(187 100% 42% / 0.18);
+    box-shadow: none;
   }
 
+  /* Was gradient text (a slop ban). Now a single solid violet for emphasis. */
   .text-gradient-cyan {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #00bcd4, #0097a7);
+    color: hsl(var(--primary));
+  }
+
+  .text-ember {
+    color: hsl(var(--ember));
   }
 
   .border-glow {
-    border-color: hsl(187 100% 42% / 0.4);
+    border-color: hsl(259 100% 71% / 0.5);
   }
 }

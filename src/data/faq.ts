@@ -42,10 +42,10 @@ export const faqItems: FaqItem[] = [
       "Completely. Your product, your vision, your code, your call, start to finish. You're the owner the whole way; we're the build. Nothing locks you to us.",
   },
   {
-    id: "two-person",
-    question: "Can a two-person studio really build my product?",
+    id: "who-builds",
+    question: "Who actually builds my product?",
     answer:
-      "Yes, and it's an advantage. You get Rafael and Jose directly, the same two who scope your build and ship it, with no juniors training on your dime and no one to translate through. We move fast because we spent years building where slow or sloppy wasn't an option, and we lean on AI to multiply our hands.",
+      "The senior people who scope it, directly. No juniors training on your dime, no account managers in between, amplified by our own AI agents so a focused studio ships like a much bigger one. You get Rafael and Jose, the same two who scope your build and ship it.",
   },
   {
     id: "ai",

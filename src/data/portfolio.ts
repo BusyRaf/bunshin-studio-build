@@ -27,9 +27,9 @@ export type PortfolioProject = {
 
 export const portfolioIntro = {
   eyebrow: "Portfolio",
-  title: "What We Built. What It Replaced. What Changed.",
+  title: "Products we've built.",
   description:
-    "A selection of systems we have built — what we replaced, what we delivered, and what changed after launch. Client work ships with the same rigor as our internal builds.",
+    "Our own software, and a few things we built for people who brought us their vision. Every one shipped. Every one real.",
 };
 
 export const portfolioProjects: PortfolioProject[] = [

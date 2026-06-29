@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ['"IBM Plex Mono"', "JetBrains Mono", "Fira Code", "monospace"],
-        sans: ['"DM Sans"', "system-ui", "sans-serif"],
+        mono: ['"Spline Sans Mono"', "JetBrains Mono", "monospace"],
+        sans: ['"Hanken Grotesk"', "system-ui", "sans-serif"],
+        display: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -78,8 +79,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(187 100% 42% / 0.4), 0 0 60px hsl(187 100% 42% / 0.15)" },
-          "50%": { boxShadow: "0 0 30px hsl(187 100% 42% / 0.6), 0 0 80px hsl(187 100% 42% / 0.25)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(259 100% 71% / 0.4), 0 0 60px hsl(259 100% 71% / 0.15)" },
+          "50%": { boxShadow: "0 0 30px hsl(259 100% 71% / 0.55), 0 0 80px hsl(259 100% 71% / 0.22)" },
         },
         "fade-in-up": {
           from: { opacity: "0", transform: "translateY(30px)" },

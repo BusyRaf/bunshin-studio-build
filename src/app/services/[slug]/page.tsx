@@ -25,8 +25,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <Navbar />
       <main className="pt-28 pb-24 md:pt-32">
         <section className="container mx-auto px-6 max-w-3xl mb-12">
-          <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase mb-4">{line.eyebrow}</p>
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{line.title}</h1>
+          <p className="font-mono text-xs text-primary mb-4">// {line.eyebrow.toLowerCase()}</p>
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold mb-6 leading-[1.0] tracking-[-0.03em]">{line.title}</h1>
           <p className="text-lg text-muted-foreground font-sans leading-relaxed">{line.intro}</p>
         </section>
 
@@ -58,11 +58,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
 
         <section className="container mx-auto px-6 max-w-3xl">
-          <div className="glass rounded-2xl p-8 md:p-10 border border-primary/20 text-center">
+          <div className="rounded-2xl p-8 md:p-10 border border-border text-center">
             <p className="text-lg text-foreground font-sans leading-relaxed mb-6 max-w-xl mx-auto">{line.cta}</p>
             <Link
               href="/contact"
-              className="font-mono text-base bg-primary text-primary-foreground px-8 py-4 rounded-md cyan-glow hover:animate-pulse-glow transition-all duration-300 font-semibold inline-block"
+              className="font-sans font-semibold text-base bg-[#6a37e0] text-white px-8 py-4 rounded-xl hover:bg-[#7b4bff] transition-colors inline-block"
             >
               Start a build
             </Link>

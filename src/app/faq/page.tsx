@@ -23,19 +23,19 @@ export default function FaqPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main className="pt-28 pb-24 md:pt-32">
-        <section className="container mx-auto px-6 max-w-3xl mb-12 text-center">
-          <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase mb-4">Questions</p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">Building an app with Bunshin</h1>
-          <p className="text-muted-foreground font-sans max-w-2xl mx-auto leading-relaxed">
+        <section className="container mx-auto px-6 max-w-3xl mb-12 pb-10 border-b border-border">
+          <p className="font-mono text-xs text-primary mb-5">// questions</p>
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold tracking-[-0.03em] mb-5 text-balance">Building an app with Bunshin</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
             The questions builders actually ask us. If yours isn&apos;t here, just ask.
           </p>
         </section>
 
-        <section className="container mx-auto px-6 max-w-3xl space-y-6">
+        <section className="container mx-auto px-6 max-w-3xl">
           {faqItems.map((item) => (
-            <div key={item.id} className="glass rounded-xl p-6 md:p-8 border border-border">
-              <h2 className="font-semibold text-lg mb-3">{item.question}</h2>
-              <p className="text-muted-foreground font-sans leading-relaxed">{item.answer}</p>
+            <div key={item.id} className="border-b border-border py-7">
+              <h2 className="font-display text-xl font-bold mb-2.5">{item.question}</h2>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl">{item.answer}</p>
             </div>
           ))}
         </section>
