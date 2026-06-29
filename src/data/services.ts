@@ -29,7 +29,7 @@ export const serviceLines: ServiceLine[] = [
       "It's your vision and your call, from the first sketch to launch day. We bring it to life; you decide where it goes.",
     ],
     proof:
-      "StreamHalla started as an idea about streamer communities. It's live today. The closet behind us is full of products that began the same way.",
+      "StreamHalla started as an idea about streamer communities. It's live today. The vault behind us is full of products that began the same way.",
     cta: "Tell us what you're building. We'll figure out the rest together.",
   },
   {

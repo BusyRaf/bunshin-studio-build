@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -6,11 +7,10 @@ import { portfolioProjects } from "@/data/portfolio";
 import { siteConfig } from "@/data/seo";
 
 export function generateStaticParams() {
-  // Exclude projects that have a dedicated static route (e.g. fishing-with-friends/page.tsx)
-  const staticRouteIds = new Set(["fishing-with-friends", "animal-control-platform", "streamhalla"])
+  const staticRouteIds = new Set(["fishing-with-friends", "animal-control-platform", "streamhalla"]);
   return portfolioProjects
     .filter((project) => !staticRouteIds.has(project.id))
-    .map((project) => ({ projectId: project.id }))
+    .map((project) => ({ projectId: project.id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ projectId: string }> }): Promise<Metadata> {
@@ -35,117 +35,100 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
   const project = portfolioProjects.find((item) => item.id === projectId);
   if (!project) notFound();
 
+  const isLive =
+    project.status === "Live" || project.status === "Available" || project.status === "Delivered";
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-28 pb-24 md:pt-32">
-        {/* Header */}
-        <section className="container mx-auto px-6 max-w-4xl mb-12">
-          <div className="flex flex-wrap items-center gap-2 mb-4">
+        <section className="container mx-auto px-6 max-w-4xl mb-10 pb-10 border-b border-border">
+          <p className="font-mono text-xs text-primary mb-5">// case study</p>
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold tracking-[-0.03em] mb-6 text-balance">{project.title}</h1>
+          <div className="flex flex-wrap items-center gap-2">
             {project.category && (
-              <span className="font-mono text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">{project.category}</span>
+              <span className="font-mono text-[11px] text-primary border border-primary/30 rounded-md px-2.5 py-1">{project.category}</span>
             )}
             {project.status && (
-              <span className={`font-mono text-xs px-2 py-0.5 rounded border ${
-                project.status === "Live" || project.status === "Available"
-                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-                  : "bg-muted/50 text-muted-foreground border-border/60"
-              }`}>{project.status}</span>
+              <span className={`font-mono text-[11px] rounded-md px-2.5 py-1 border ${isLive ? "border-emerald-500/30 text-emerald-300" : "border-border text-muted-foreground"}`}>
+                {project.status}
+              </span>
             )}
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">{project.title}</h1>
-          {project.tags && project.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span key={tag} className="font-mono text-xs text-muted-foreground bg-muted/50 px-2 py-0.5 rounded border border-border/60">{tag}</span>
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* Image(s) */}
-        {project.images && project.images.length > 1 ? (
-          <section className="container mx-auto px-6 max-w-4xl mb-12">
-            <div className={`grid gap-4 ${project.images.length === 4 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1 sm:grid-cols-3"}`}>
-              {project.images.map((src, i) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  className="w-full rounded-xl border border-border"
-                />
-              ))}
-            </div>
-          </section>
-        ) : project.imageSrc ? (
-          <section className="container mx-auto px-6 max-w-4xl mb-12">
-            <img
-              src={project.imageSrc}
-              alt={`${project.title} screenshot`}
-              className="w-full rounded-xl border border-border"
-            />
-          </section>
-        ) : null}
-
-        {/* Overview */}
-        <section className="container mx-auto px-6 max-w-4xl mb-12">
-          <div className="glass rounded-xl p-8 md:p-10 border border-border">
-            <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-4">Overview</p>
-            <p className="text-muted-foreground font-sans leading-relaxed">{project.summary}</p>
+            {(project.tags ?? []).map((tag) => (
+              <span key={tag} className="font-mono text-[11px] text-muted-foreground border border-border rounded-md px-2.5 py-1">{tag}</span>
+            ))}
           </div>
         </section>
 
-        {/* What We Built */}
-        <section className="container mx-auto px-6 max-w-4xl mb-12">
-          <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-6">What We Built</p>
-          <div className="space-y-4">
+        {project.imageSrc && (
+          <section className="container mx-auto px-6 max-w-4xl mb-12">
+            <div className="rounded-2xl border border-border overflow-hidden bg-card flex items-center justify-center">
+              <img src={project.imageSrc} alt={project.title} className="w-full max-h-[460px] object-contain" />
+            </div>
+          </section>
+        )}
+
+        <section className="container mx-auto px-6 max-w-4xl mb-14">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">{project.summary}</p>
+        </section>
+
+        <section className="container mx-auto px-6 max-w-4xl mb-14">
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-8">What we built</h2>
+          <div className="border-t border-border">
             {project.highlights.map((item) => (
-              <div key={item.heading} className="glass rounded-lg p-6 border border-border">
-                <p className="font-mono text-sm font-semibold text-foreground mb-2">{item.heading}</p>
-                <p className="text-muted-foreground font-sans text-sm leading-relaxed">{item.body}</p>
+              <div key={item.heading} className="border-b border-border py-6 grid md:grid-cols-[1fr_1.6fr] gap-2 md:gap-8">
+                <h3 className="font-display text-lg font-bold">{item.heading}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Testimonial */}
-        {project.testimonial && (
-          <section className="container mx-auto px-6 max-w-4xl mb-12">
-            <div className="glass rounded-xl p-8 md:p-10 border border-border">
-              <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-6">Client Review</p>
-              <blockquote className="text-foreground font-sans text-lg leading-relaxed mb-6">
-                &ldquo;{project.testimonial.quote}&rdquo;
-              </blockquote>
-              <div className="flex items-center justify-between">
-                <p className="font-mono text-sm text-muted-foreground">{project.testimonial.author}</p>
-                {project.testimonial.href && (
-                  <a
-                    href={project.testimonial.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-xs text-primary hover:text-accent-purple transition-colors duration-300"
-                  >
-                    ★★★★★ Google Review →
-                  </a>
-                )}
-              </div>
+        {project.images && project.images.length > 1 && (
+          <section className="container mx-auto px-6 max-w-4xl mb-14">
+            <div className={`grid gap-4 ${project.images.length === 4 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
+              {project.images.map((src, i) => (
+                <img key={src} src={src} alt={`${project.title} screenshot ${i + 1}`} className="w-full rounded-xl border border-border" />
+              ))}
             </div>
           </section>
         )}
 
-        {/* Footer row */}
-        <section className="container mx-auto px-6 max-w-4xl flex items-center justify-between">
-          <a href="/portfolio" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
-            ← All Projects
-          </a>
+        {project.testimonial && (
+          <section className="container mx-auto px-6 max-w-4xl mb-14">
+            <blockquote className="font-display text-2xl md:text-3xl font-semibold leading-[1.2] tracking-[-0.01em] max-w-3xl mb-6 text-balance">
+              &ldquo;{project.testimonial.quote}&rdquo;
+            </blockquote>
+            <div className="flex items-center gap-4 flex-wrap">
+              <p className="font-mono text-sm text-muted-foreground">{project.testimonial.author}</p>
+              {project.testimonial.href && (
+                <a href={project.testimonial.href} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-primary hover:underline underline-offset-4">
+                  ★★★★★ Google review →
+                </a>
+              )}
+            </div>
+          </section>
+        )}
+
+        <section className="container mx-auto px-6 max-w-4xl mt-4">
+          <div className="rounded-2xl border border-border p-10 md:p-14 text-center">
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-4">Want something like this built?</h2>
+            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mb-8">
+              Tell us what you&apos;re building. We&apos;ll figure out the rest together, no sales call, no pressure.
+            </p>
+            <Link href="/contact" className="font-sans font-semibold text-base bg-[#6a37e0] text-white px-8 py-4 rounded-xl hover:bg-[#7b4bff] transition-colors inline-block">
+              Start a build
+            </Link>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-6 max-w-4xl mt-10 flex items-center justify-between">
+          <Link href="/portfolio" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
+            ← All work
+          </Link>
           {project.url && (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-primary hover:text-accent-purple transition-colors duration-300"
-            >
-              Visit Live Site →
+            <a href={project.url} target="_blank" rel="noopener noreferrer" className="font-mono text-sm text-primary hover:underline underline-offset-4">
+              Visit live site →
             </a>
           )}
         </section>

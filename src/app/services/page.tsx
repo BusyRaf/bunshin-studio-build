@@ -14,8 +14,8 @@ export default function ServicesPage() {
       <Navbar />
       <main className="pt-28 pb-24 md:pt-32">
         <section className="container mx-auto px-6 max-w-3xl mb-16 md:mb-20 text-center">
-          <p className="font-mono text-xs text-primary tracking-[0.3em] uppercase mb-4">{servicesIntro.eyebrow}</p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">{servicesIntro.title}</h1>
+          <p className="font-mono text-xs text-primary mb-4">// {servicesIntro.eyebrow.toLowerCase()}</p>
+          <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-[-0.03em] mb-6">{servicesIntro.title}</h1>
           <p className="text-muted-foreground font-sans max-w-2xl mx-auto leading-relaxed">{servicesIntro.description}</p>
         </section>
 
@@ -24,10 +24,10 @@ export default function ServicesPage() {
             <Link
               key={line.id}
               href={`/services/${line.id}`}
-              className="glass rounded-xl p-8 border border-border hover:border-glow transition-all duration-500 flex flex-col group"
+              className="rounded-2xl p-8 border border-border hover:border-primary transition-all duration-300 flex flex-col group"
             >
-              <p className="font-mono text-xs text-primary tracking-[0.25em] uppercase mb-3">{line.eyebrow}</p>
-              <h2 className="text-xl md:text-2xl font-bold mb-4 leading-snug group-hover:text-primary transition-colors duration-300">
+              <p className="font-mono text-xs text-primary mb-3">// {line.eyebrow.toLowerCase()}</p>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-4 leading-snug group-hover:text-primary transition-colors duration-300">
                 {line.title}
               </h2>
               <p className="text-muted-foreground font-sans leading-relaxed text-sm flex-1">{line.intro}</p>
